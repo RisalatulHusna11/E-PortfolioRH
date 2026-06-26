@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak — Risalatul Husna | E-Portfolio PPG 2026</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --white:        #ffffff;
+      --bg-tint:      #F8FAFF;
+      --bg-subtle:    #F1F5F9;
+      --indigo:       #4F46E5;
+      --indigo-dark:  #3730A3;
+      --indigo-light: #EEF2FF;
+      --indigo-mid:   #C7D2FE;
+      --sky:          #0EA5E9;
+      --sky-light:    #E0F2FE;
+      --sky-mid:      #BAE6FD;
+      --violet:       #7C3AED;
+      --violet-light: #F5F3FF;
+      --violet-mid:   #DDD6FE;
+      --emerald:      #059669;
+      --emerald-light:#ECFDF5;
+      --emerald-mid:  #A7F3D0;
+      --amber:        #D97706;
+      --amber-light:  #FEF3C7;
+      --text-heading: #0F172A;
+      --text-body:    #334155;
+      --text-muted:   #64748B;
+      --text-faint:   #94A3B8;
+      --border:       #E2E8F0;
+      --border-strong:#CBD5E1;
+      --shadow-xs:    0 1px 3px rgba(15,23,42,0.06);
+      --shadow-sm:    0 4px 16px rgba(15,23,42,0.07);
+      --shadow-md:    0 10px 30px rgba(15,23,42,0.08);
+      --shadow-lg:    0 20px 50px rgba(15,23,42,0.10);
+      --radius-sm:    8px;
+      --radius-md:    14px;
+      --radius-lg:    20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--text-body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    .site-nav { background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s ease; position: sticky; top: 0; z-index: 1000; }
+    .site-nav.nav-scrolled { box-shadow: var(--shadow-sm); }
+    .nav-inner { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; flex-direction: column; text-decoration: none; gap: 1px; }
+    .nav-brand-name { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); letter-spacing: -0.3px; line-height: 1.2; }
+    .nav-brand-sub  { font-size: 0.65rem; font-weight: 400; color: var(--text-muted); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); text-decoration: none; padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.2s ease; white-space: nowrap; }
+    .nav-links a:hover  { color: var(--indigo); background: var(--indigo-light); }
+    .nav-links a.active { color: var(--indigo); background: var(--indigo-light); font-weight: 600; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.6rem; cursor: pointer; color: var(--text-heading); }
+    .mobile-nav { display: none; border-top: 1px solid var(--border); padding: 0.75rem 0; background: white; }
+    .mobile-nav a { display: block; font-size: 0.88rem; font-weight: 500; color: var(--text-body); text-decoration: none; padding: 0.65rem 1rem; border-radius: 6px; transition: all 0.2s ease; }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--indigo); background: var(--indigo-light); }
+    @media (max-width: 820px) { .nav-links { display: none; } .nav-toggle { display: flex; align-items: center; gap: 6px; } .mobile-nav.open { display: block; } }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 80px 0 72px;
+      background: var(--bg-tint);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; top: -100px; right: -150px;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, #ECFDF5 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-header::after {
+      content: ''; position: absolute; bottom: -80px; left: -100px;
+      width: 350px; height: 350px; border-radius: 50%;
+      background: radial-gradient(circle, #EEF2FF 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .breadcrumb-nav { font-size: 0.75rem; color: var(--text-faint); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .breadcrumb-nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-nav a:hover { color: var(--indigo); }
+    .page-header-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--emerald); background: var(--emerald-light); border: 1px solid var(--emerald-mid); border-radius: 100px; padding: 0.3rem 1rem; margin-bottom: 1.25rem; }
+    .page-header-title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; color: var(--text-heading); letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header-desc  { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 520px; }
+
+    /* ── SECTION COMMONS ── */
+    .sec-heading { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
+    .sec-rule    { width: 3px; height: 52px; background: linear-gradient(180deg, var(--indigo), #C7D2FE); border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+    .sec-rule-sm { height: 36px; }
+    .sec-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .sec-title   { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-weight: 800; color: var(--text-heading); letter-spacing: -0.5px; line-height: 1.2; margin: 0; }
+
+    /* ── KONTAK UTAMA ── */
+    .kontak-section { padding: 88px 0; background: var(--white); }
+
+    /* Identity card kiri */
+    .identity-card {
+      background: linear-gradient(135deg, var(--indigo) 0%, #6366F1 60%, #818CF8 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .identity-card::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: rgba(255,255,255,0.07); pointer-events: none;
+    }
+    .identity-card::after {
+      content: ''; position: absolute; bottom: -40px; left: -40px;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: rgba(255,255,255,0.05); pointer-events: none;
+    }
+    .id-avatar {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: rgba(255,255,255,0.18);
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; font-weight: 800; color: white;
+      margin-bottom: 1.25rem;
+    }
+    .id-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.3px; }
+    .id-role { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.5; margin-bottom: 1.75rem; }
+    .id-divider { border-color: rgba(255,255,255,0.2); margin: 1.5rem 0; }
+
+    .id-info-item {
+      display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem;
+    }
+    .id-info-item:last-child { margin-bottom: 0; }
+    .id-info-icon {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; color: rgba(255,255,255,0.9);
+      margin-top: 1px;
+    }
+    .id-info-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 2px; }
+    .id-info-val   { font-size: 0.83rem; color: rgba(255,255,255,0.95); line-height: 1.4; word-break: break-all; }
+
+    .id-status-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.72rem; font-weight: 600; color: white;
+      margin-top: 1.5rem;
+    }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #34D399; animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.7); } }
+
+    /* Kontak channels */
+    .channel-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 0.85rem;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-xs);
+      text-decoration: none;
+    }
+    .channel-card:hover {
+      text-decoration: none;
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--indigo-mid);
+    }
+    .channel-icon {
+      width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .channel-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 2px; }
+    .channel-value { font-size: 0.9rem; font-weight: 600; color: var(--text-heading); margin-bottom: 2px; }
+    .channel-note  { font-size: 0.75rem; color: var(--text-muted); }
+    .channel-arrow { margin-left: auto; font-size: 0.9rem; color: var(--text-faint); transition: all 0.25s ease; flex-shrink: 0; align-self: center; }
+    .channel-card:hover .channel-arrow { color: var(--indigo); transform: translateX(3px); }
+
+    /* ── FORM SECTION ── */
+    .form-section { padding: 88px 0; background: var(--bg-tint); }
+
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-card-header { margin-bottom: 2rem; }
+    .form-card-title { font-size: 1.3rem; font-weight: 800; color: var(--text-heading); letter-spacing: -0.4px; margin-bottom: 0.35rem; }
+    .form-card-desc  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    .form-label-custom {
+      font-size: 0.78rem; font-weight: 700; color: var(--text-heading);
+      margin-bottom: 0.4rem; display: block;
+    }
+    .form-control-custom {
+      width: 100%; padding: 0.75rem 1rem;
+      background: var(--bg-tint);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem; color: var(--text-heading);
+      transition: all 0.2s ease;
+      outline: none;
+      resize: none;
+    }
+    .form-control-custom::placeholder { color: var(--text-faint); }
+    .form-control-custom:focus {
+      border-color: var(--indigo);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(79,70,229,0.08);
+    }
+    .form-group { margin-bottom: 1.25rem; }
+
+    .topic-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .topic-chip {
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.35rem 0.85rem; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--bg-tint);
+      color: var(--text-muted); cursor: pointer; transition: all 0.2s ease;
+    }
+    .topic-chip:hover, .topic-chip.selected {
+      border-color: var(--indigo); background: var(--indigo-light); color: var(--indigo);
+    }
+
+    .btn-submit {
+      width: 100%; padding: 0.85rem 2rem;
+      background: var(--indigo); color: white;
+      border: none; border-radius: var(--radius-sm);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 700;
+      cursor: pointer; transition: all 0.25s ease;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover { background: var(--indigo-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,70,229,0.25); }
+    .btn-submit:active { transform: translateY(0); }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .form-success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--emerald-light); border: 2px solid var(--emerald-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--emerald);
+      margin: 0 auto 1.25rem;
+    }
+    .form-success-title { font-size: 1.1rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem; }
+    .form-success-text  { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── KOLABORASI SECTION ── */
+    .kolaborasi-section { padding: 88px 0; background: var(--white); }
+
+    .kol-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      height: 100%;
+      box-shadow: var(--shadow-xs);
+      transition: all 0.25s ease;
+      position: relative; overflow: hidden;
+    }
+    .kol-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .kol-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--indigo-mid); }
+    .kol-card:hover::after { transform: scaleX(1); }
+    .kol-card.kol-indigo::after  { background: linear-gradient(90deg, var(--indigo), #818CF8); }
+    .kol-card.kol-sky::after     { background: linear-gradient(90deg, var(--sky), #38BDF8); }
+    .kol-card.kol-emerald::after { background: linear-gradient(90deg, var(--emerald), #34D399); }
+    .kol-card.kol-violet::after  { background: linear-gradient(90deg, var(--violet), #A78BFA); }
+
+    .kol-icon { width: 44px; height: 44px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; margin-bottom: 1rem; }
+    .kol-title { font-size: 0.92rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.4rem; }
+    .kol-desc  { font-size: 0.8rem; color: var(--text-muted); line-height: 1.75; margin: 0; }
+
+    /* ── PENUTUP BANNER ── */
+    .penutup-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--indigo) 0%, #6366F1 50%, var(--sky) 100%);
+    }
+    .penutup-inner { text-align: center; max-width: 680px; margin: 0 auto; }
+    .penutup-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: white;
+      margin: 0 auto 1.75rem;
+    }
+    .penutup-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: white; letter-spacing: -0.5px; margin-bottom: 1rem; }
+    .penutup-text  { font-size: 1rem; color: rgba(255,255,255,0.85); line-height: 1.8; margin-bottom: 2rem; }
+    .penutup-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; color: var(--indigo);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem; font-weight: 700;
+      padding: 0.8rem 2rem; border-radius: var(--radius-sm);
+      text-decoration: none; transition: all 0.25s ease;
+    }
+    .penutup-btn:hover { background: var(--indigo-light); color: var(--indigo-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* ── SITEMAP FOOTER ATAS ── */
+    .sitemap-section { padding: 64px 0; background: var(--bg-tint); border-top: 1px solid var(--border); }
+    .sitemap-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 1rem; }
+    .sitemap-link {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.85rem; font-weight: 500; color: var(--text-body);
+      text-decoration: none; padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+    .sitemap-link:last-child { border-bottom: none; }
+    .sitemap-link:hover { color: var(--indigo); padding-left: 4px; }
+    .sitemap-link i { font-size: 0.75rem; color: var(--text-faint); }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--text-heading); color: #94A3B8; padding: 3rem 0; }
+    .footer-brand-name { font-size: 1rem; font-weight: 700; color: white; letter-spacing: -0.3px; margin-bottom: 4px; }
+    .footer-brand-sub  { font-size: 0.75rem; color: #64748B; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; margin: 0; padding: 0; justify-content: flex-end; }
+    .footer-links a { font-size: 0.78rem; font-weight: 500; color: #64748B; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-divider { border-color: #1E293B; margin: 1.75rem 0; }
+    .footer-copy { font-size: 0.72rem; color: #475569; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-subtle); }
+    ::-webkit-scrollbar-thumb { background: var(--indigo-mid); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--indigo); }
+
+    @media (max-width: 991px) { .page-header, .kontak-section, .form-section, .kolaborasi-section, .sitemap-section { padding: 64px 0; } .identity-card { margin-bottom: 2rem; } }
+    @media (max-width: 767px) { .footer-links { justify-content: flex-start; } }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="nav-brand" href="index.html">
+          <span class="nav-brand-name">Risalatul Husna</span>
+          <span class="nav-brand-sub">E-Portfolio · PPG Informatika 2026</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="profile.html">Tentang Saya</a></li>
+          <li><a href="artifacts.html">Artefak &amp; Analisis</a></li>
+          <li><a href="reflection.html">Refleksi &amp; Filosofi</a></li>
+          <li><a href="contact.html" class="active">Kontak</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <i class="bi bi-list" id="navIcon" style="font-size:1.1rem;"></i>
+          <span style="font-size:0.8rem;font-weight:600;color:var(--text-body);">Menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Beranda</a>
+        <a href="profile.html">Tentang Saya</a>
+        <a href="artifacts.html">Artefak &amp; Analisis</a>
+        <a href="reflection.html">Refleksi &amp; Filosofi</a>
+        <a href="contact.html" class="active">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ PAGE HEADER ══ -->
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb-nav" data-aos="fade-right" data-aos-duration="600">
+        <a href="index.html">Beranda</a>
+        <i class="bi bi-chevron-right"></i>
+        <span style="color:var(--emerald);">Kontak</span>
+      </div>
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="page-header-label" data-aos="fade-up" data-aos-duration="700">
+            <i class="bi bi-envelope-heart-fill"></i> Mari Terhubung
+          </div>
+          <h1 class="page-header-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80">
+            Saya Terbuka untuk<br>Diskusi &amp; Kolaborasi
+          </h1>
+          <p class="page-header-desc" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160">
+            Baik untuk berdiskusi tentang inovasi pembelajaran, berbagi pengalaman PPL, mengeksplorasi kolaborasi riset, atau sekadar menyapa — saya dengan senang hati mendengar dari Anda.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ KONTAK UTAMA ══ -->
+  <section class="kontak-section">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Kiri: Identity + Channels -->
+        <div class="col-lg-5" data-aos="fade-up" data-aos-duration="800">
+
+          <div class="identity-card mb-4">
+            <div class="id-avatar">RH</div>
+            <div class="id-name">Risalatul Husna</div>
+            <div class="id-role">PPG Calon Guru Informatika · Gelombang 1, 2026<br>Universitas Lambung Mangkurat</div>
+            <div class="id-status-badge">
+              <span class="status-dot"></span> Terbuka untuk kolaborasi
+            </div>
+            <hr class="id-divider">
+            <div class="id-info-item">
+              <div class="id-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <div class="id-info-label">Lokasi</div>
+                <div class="id-info-val">Banjarmasin, Kalimantan Selatan</div>
+              </div>
+            </div>
+            <div class="id-info-item">
+              <div class="id-info-icon"><i class="bi bi-building"></i></div>
+              <div>
+                <div class="id-info-label">Sekolah PPL</div>
+                <div class="id-info-val">SMK Negeri 1 Banjarmasin</div>
+              </div>
+            </div>
+            <div class="id-info-item">
+              <div class="id-info-icon"><i class="bi bi-mortarboard-fill"></i></div>
+              <div>
+                <div class="id-info-label">Program</div>
+                <div class="id-info-val">PPG Calon Guru Informatika · ULM 2026</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-faint);margin-bottom:0.85rem;">
+            Hubungi Saya Via
+          </div>
+
+          <a href="mailto:risalatulhusna94@gmail.com" class="channel-card">
+            <div class="channel-icon" style="background:var(--indigo-light);color:var(--indigo);border:1px solid var(--indigo-mid);">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div>
+              <div class="channel-label">Email</div>
+              <div class="channel-value">risalatulhusna94@gmail.com</div>
+              <div class="channel-note">Respons dalam 1–2 hari kerja</div>
+            </div>
+            <i class="bi bi-arrow-up-right channel-arrow"></i>
+          </a>
+
+          <a href="https://www.instagram.com/risalatulhusna_" target="_blank" class="channel-card">
+            <div class="channel-icon" style="background:#FFF1F2;color:#E11D48;border:1px solid #FECDD3;">
+              <i class="bi bi-instagram"></i>
+            </div>
+            <div>
+              <div class="channel-label">Instagram</div>
+              <div class="channel-value">@risalatulhusna_</div>
+              <div class="channel-note">Bisa langsung hubungi aja :)</div>
+            </div>
+            <i class="bi bi-arrow-up-right channel-arrow"></i>
+          </a>
+        </div>
+
+        <!-- Kanan: Form -->
+        <div class="col-lg-7" data-aos="fade-up" data-aos-duration="900" data-aos-delay="120">
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="form-card-title">Kirim Pesan</div>
+              <div class="form-card-desc">Isi formulir di bawah ini dan saya akan merespons secepatnya. Semua bidang bertanda <span style="color:var(--rose,#E11D48)">*</span> wajib diisi.</div>
+            </div>
+
+            <div id="contactForm">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label-custom">Nama Lengkap <span style="color:#E11D48">*</span></label>
+                    <input type="text" class="form-control-custom" id="inputNama" placeholder="Nama Anda" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label-custom">Email <span style="color:#E11D48">*</span></label>
+                    <input type="email" class="form-control-custom" id="inputEmail" placeholder="email@anda.com" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Instansi / Afiliasi</label>
+                <input type="text" class="form-control-custom" id="inputInstansi" placeholder="Universitas / Sekolah / Organisasi Anda" />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Topik yang Ingin Didiskusikan</label>
+                <div class="topic-chips">
+                  <span class="topic-chip" onclick="toggleChip(this)">Inovasi Pembelajaran</span>
+                  <span class="topic-chip" onclick="toggleChip(this)">Sprint Rotasi Keyboard</span>
+                  <span class="topic-chip" onclick="toggleChip(this)">Kolaborasi Riset</span>
+                  <span class="topic-chip" onclick="toggleChip(this)">PPG &amp; PPL</span>
+                  <span class="topic-chip" onclick="toggleChip(this)">Pemrograman Python</span>
+                  <span class="topic-chip" onclick="toggleChip(this)">Cooperative Learning</span>
+                  <span class="topic-chip" onclick="toggleChip(this)">Lainnya</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Pesan <span style="color:#E11D48">*</span></label>
+                <textarea class="form-control-custom" id="inputPesan" rows="5" placeholder="Ceritakan apa yang ingin Anda diskusikan, kolaborasikan, atau tanyakan..."></textarea>
+              </div>
+
+              <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;align-items:flex-start;gap:0.75rem;">
+                <i class="bi bi-shield-check-fill" style="color:var(--emerald);font-size:1rem;margin-top:2px;flex-shrink:0;"></i>
+                <p style="font-size:0.78rem;color:var(--text-muted);line-height:1.7;margin:0;">Informasi yang Anda kirimkan hanya digunakan untuk keperluan komunikasi dan tidak akan dibagikan kepada pihak ketiga manapun.</p>
+              </div>
+
+              <button class="btn-submit" onclick="submitForm()">
+                <i class="bi bi-send-fill"></i> Kirim Pesan
+              </button>
+            </div>
+
+            <!-- Success State -->
+            <div class="form-success" id="formSuccess">
+              <div class="form-success-icon"><i class="bi bi-check-lg"></i></div>
+              <div class="form-success-title">Pesan Terkirim!</div>
+              <p class="form-success-text">Terima kasih telah menghubungi saya. Saya akan membaca pesan Anda dan merespons melalui email dalam 1–2 hari kerja.</p>
+              <button onclick="resetForm()" style="margin-top:1.25rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.82rem;font-weight:600;color:var(--indigo);background:var(--indigo-light);border:1px solid var(--indigo-mid);border-radius:var(--radius-sm);padding:0.55rem 1.25rem;cursor:pointer;transition:all 0.2s ease;">
+                Kirim Pesan Lain
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ KOLABORASI ══ -->
+  <section class="kolaborasi-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--indigo);">Kolaborasi</div>
+          <h2 class="sec-title">Apa yang Bisa Kita Kerjakan Bersama</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+          <div class="kol-card kol-indigo">
+            <div class="kol-icon" style="background:var(--indigo-light);color:var(--indigo);border:1px solid var(--indigo-mid);"><i class="bi bi-lightbulb-fill"></i></div>
+            <div class="kol-title">Inovasi Pembelajaran</div>
+            <p class="kol-desc">Mendiskusikan, menguji, dan mengembangkan strategi pembelajaran inovatif khususnya untuk bidang Informatika dan pemrograman di SMK.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80">
+          <div class="kol-card kol-sky">
+            <div class="kol-icon" style="background:var(--sky-light);color:var(--sky);border:1px solid var(--sky-mid);"><i class="bi bi-journal-text"></i></div>
+            <div class="kol-title">Penelitian Tindakan Kelas</div>
+            <p class="kol-desc">Berkolaborasi dalam merancang, melaksanakan, dan mempublikasikan PTK — khususnya yang berkaitan dengan model cooperative learning dan teknologi.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160">
+          <div class="kol-card kol-emerald">
+            <div class="kol-icon" style="background:var(--emerald-light);color:var(--emerald);border:1px solid var(--emerald-mid);"><i class="bi bi-people-fill"></i></div>
+            <div class="kol-title">Diskusi &amp; Berbagi Pengalaman</div>
+            <p class="kol-desc">Terbuka untuk berbagi pengalaman PPL, strategi kelas, dan perspektif sebagai calon guru Informatika lintas institusi.</p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="240">
+          <div class="kol-card kol-violet">
+            <div class="kol-icon" style="background:var(--violet-light);color:var(--violet);border:1px solid var(--violet-mid);"><i class="bi bi-code-slash"></i></div>
+            <div class="kol-title">Pengembangan Media Belajar</div>
+            <p class="kol-desc">Berkolaborasi dalam merancang dan mengembangkan media pembelajaran digital interaktif berbasis web untuk mata pelajaran Informatika.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PENUTUP BANNER ══ -->
+  <section class="penutup-section">
+    <div class="container" data-aos="fade-up" data-aos-duration="900">
+      <div class="penutup-inner">
+        <div class="penutup-icon"><i class="bi bi-heart-fill"></i></div>
+        <h2 class="penutup-title">Terima Kasih Telah Mengunjungi Portfolio Saya</h2>
+        <p class="penutup-text">
+          Portfolio ini adalah cermin dari tiga bulan perjalanan yang mengajarkan saya lebih banyak tentang diri saya sendiri daripada yang saya bayangkan. Setiap siklus, setiap kesalahan, setiap momen "aha!" dari siswa — semuanya membentuk guru yang ingin saya jadikan diri saya. Saya harap perjalanan ini menginspirasi Anda untuk terus berinovasi.
+        </p>
+        <a href="index.html" class="penutup-btn">
+          <i class="bi bi-house-fill"></i> Kembali ke Beranda
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SITEMAP ══ -->
+  <section class="sitemap-section">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="sitemap-title">Navigasi Utama</div>
+          <a href="index.html"     class="sitemap-link"><i class="bi bi-chevron-right"></i> Beranda</a>
+          <a href="profile.html"   class="sitemap-link"><i class="bi bi-chevron-right"></i> Tentang Saya</a>
+          <a href="artifacts.html" class="sitemap-link"><i class="bi bi-chevron-right"></i> Artefak &amp; Analisis</a>
+          <a href="reflection.html"class="sitemap-link"><i class="bi bi-chevron-right"></i> Refleksi &amp; Filosofi</a>
+          <a href="contact.html"   class="sitemap-link"><i class="bi bi-chevron-right"></i> Kontak</a>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="80">
+          <div class="sitemap-title">Siklus Pembelajaran</div>
+          <a href="artifacts.html#siklus1" class="sitemap-link"><i class="bi bi-chevron-right"></i> Siklus 1</a>
+          <a href="artifacts.html#siklus2" class="sitemap-link"><i class="bi bi-chevron-right"></i> Siklus 2</a>
+          <a href="artifacts.html#siklus3" class="sitemap-link"><i class="bi bi-chevron-right"></i> Siklus 3</a>
+          <a href="artifacts.html#analisis"class="sitemap-link"><i class="bi bi-chevron-right"></i> Analisis Mendalam</a>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="160">
+          <div class="sitemap-title">Identitas</div>
+          <div style="font-size:0.83rem;color:var(--text-body);font-weight:500;padding:0.5rem 0;border-bottom:1px solid var(--border);">Risalatul Husna</div>
+          <div style="font-size:0.83rem;color:var(--text-muted);padding:0.5rem 0;border-bottom:1px solid var(--border);">NIM 2530111723982</div>
+          <div style="font-size:0.83rem;color:var(--text-muted);padding:0.5rem 0;border-bottom:1px solid var(--border);">PPG Calon Guru Informatika</div>
+          <div style="font-size:0.83rem;color:var(--text-muted);padding:0.5rem 0;">Gelombang 1 · 2026</div>
+        </div>
+        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="240">
+          <div class="sitemap-title">Kontak</div>
+          <div style="font-size:0.83rem;color:var(--text-body);padding:0.5rem 0;border-bottom:1px solid var(--border);word-break:break-all;">risalatulhusna94@gmail.com</div>
+          <div style="font-size:0.83rem;color:var(--text-muted);padding:0.5rem 0;border-bottom:1px solid var(--border);">Banjarmasin, Kalsel</div>
+          <div style="font-size:0.83rem;color:var(--text-muted);padding:0.5rem 0;">SMK Negeri 1 Banjarmasin</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-4">
+        <div>
+          <div class="footer-brand-name">Risalatul Husna</div>
+          <div class="footer-brand-sub">PPG Calon Guru Informatika · Universitas Lambung Mangkurat · 2026</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="profile.html">Tentang Saya</a></li>
+          <li><a href="artifacts.html">Artefak</a></li>
+          <li><a href="reflection.html">Refleksi</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+        </ul>
+      </div>
+      <hr class="footer-divider">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div class="footer-copy">© 2026 Risalatul Husna. E-Portfolio PPG Calon Guru Informatika.</div>
+        <div class="footer-copy">SMK Negeri 1 Banjarmasin · Banjarmasin, Kalimantan Selatan</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 50, easing: 'ease-out-cubic' });
+
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('nav-scrolled', window.scrollY > 20); }, { passive: true });
+
+    const btn = document.getElementById('navToggle'), mobileNav = document.getElementById('mobileNav'), icon = document.getElementById('navIcon');
+    btn.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); icon.className = open ? 'bi bi-x-lg' : 'bi bi-list'; icon.style.fontSize = '1.1rem'; });
+
+    function toggleChip(el) { el.classList.toggle('selected'); }
+
+    function submitForm() {
+      const nama  = document.getElementById('inputNama').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+      const pesan = document.getElementById('inputPesan').value.trim();
+
+      if (!nama || !email || !pesan) {
+        const fields = [
+          { id: 'inputNama',  val: nama  },
+          { id: 'inputEmail', val: email },
+          { id: 'inputPesan', val: pesan }
+        ];
+        fields.forEach(f => {
+          const el = document.getElementById(f.id);
+          if (!f.val) {
+            el.style.borderColor = '#E11D48';
+            el.style.background  = '#FFF1F2';
+            el.addEventListener('input', () => { el.style.borderColor = ''; el.style.background = ''; }, { once: true });
+          }
+        });
+        return;
+      }
+
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display  = 'block';
+    }
+
+    function resetForm() {
+      document.getElementById('inputNama').value  = '';
+      document.getElementById('inputEmail').value = '';
+      document.getElementById('inputInstansi').value = '';
+      document.getElementById('inputPesan').value = '';
+      document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('selected'));
+      document.getElementById('contactForm').style.display = 'block';
+      document.getElementById('formSuccess').style.display  = 'none';
+    }
+  </script>
+</body>
+</html>

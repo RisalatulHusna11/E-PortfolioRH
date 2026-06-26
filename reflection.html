@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refleksi & Filosofi — Risalatul Husna | E-Portfolio PPG 2026</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --white:        #ffffff;
+      --bg-tint:      #F8FAFF;
+      --bg-subtle:    #F1F5F9;
+      --indigo:       #4F46E5;
+      --indigo-dark:  #3730A3;
+      --indigo-light: #EEF2FF;
+      --indigo-mid:   #C7D2FE;
+      --sky:          #0EA5E9;
+      --sky-light:    #E0F2FE;
+      --sky-mid:      #BAE6FD;
+      --violet:       #7C3AED;
+      --violet-light: #F5F3FF;
+      --violet-mid:   #DDD6FE;
+      --emerald:      #059669;
+      --emerald-light:#ECFDF5;
+      --emerald-mid:  #A7F3D0;
+      --amber:        #D97706;
+      --amber-light:  #FEF3C7;
+      --rose:         #E11D48;
+      --rose-light:   #FFF1F2;
+      --rose-mid:     #FECDD3;
+      --text-heading: #0F172A;
+      --text-body:    #334155;
+      --text-muted:   #64748B;
+      --text-faint:   #94A3B8;
+      --border:       #E2E8F0;
+      --shadow-xs:    0 1px 3px rgba(15,23,42,0.06);
+      --shadow-sm:    0 4px 16px rgba(15,23,42,0.07);
+      --shadow-md:    0 10px 30px rgba(15,23,42,0.08);
+      --radius-sm:    8px;
+      --radius-md:    14px;
+      --radius-lg:    20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--white); color: var(--text-body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* ── NAVBAR ── */
+    .site-nav { background: rgba(255,255,255,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s ease; position: sticky; top: 0; z-index: 1000; }
+    .site-nav.nav-scrolled { box-shadow: var(--shadow-sm); }
+    .nav-inner { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; flex-direction: column; text-decoration: none; gap: 1px; }
+    .nav-brand-name { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); letter-spacing: -0.3px; line-height: 1.2; }
+    .nav-brand-sub  { font-size: 0.65rem; font-weight: 400; color: var(--text-muted); }
+    .nav-links { display: flex; align-items: center; gap: 0.25rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); text-decoration: none; padding: 0.45rem 0.85rem; border-radius: 6px; transition: all 0.2s ease; white-space: nowrap; }
+    .nav-links a:hover  { color: var(--indigo); background: var(--indigo-light); }
+    .nav-links a.active { color: var(--indigo); background: var(--indigo-light); font-weight: 600; }
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); border-radius: 6px; padding: 0.35rem 0.6rem; cursor: pointer; color: var(--text-heading); }
+    .mobile-nav { display: none; border-top: 1px solid var(--border); padding: 0.75rem 0; background: white; }
+    .mobile-nav a { display: block; font-size: 0.88rem; font-weight: 500; color: var(--text-body); text-decoration: none; padding: 0.65rem 1rem; border-radius: 6px; transition: all 0.2s ease; }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--indigo); background: var(--indigo-light); }
+    @media (max-width: 820px) { .nav-links { display: none; } .nav-toggle { display: flex; align-items: center; gap: 6px; } .mobile-nav.open { display: block; } }
+
+    /* ── PAGE HEADER ── */
+    .page-header { padding: 80px 0 72px; background: var(--bg-tint); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; top: -100px; right: -150px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, #F5F3FF 0%, transparent 65%); pointer-events: none; }
+    .breadcrumb-nav { font-size: 0.75rem; color: var(--text-faint); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .breadcrumb-nav a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-nav a:hover { color: var(--indigo); }
+    .page-header-label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--violet); background: var(--violet-light); border: 1px solid var(--violet-mid); border-radius: 100px; padding: 0.3rem 1rem; margin-bottom: 1.25rem; }
+    .page-header-title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800; color: var(--text-heading); letter-spacing: -1.2px; line-height: 1.1; margin-bottom: 1rem; }
+    .page-header-desc  { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 560px; font-style: italic; }
+
+    /* ── SECTION COMMONS ── */
+    .sec-heading { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 2.5rem; }
+    .sec-rule    { width: 3px; height: 52px; background: linear-gradient(180deg, var(--indigo), #C7D2FE); border-radius: 4px; flex-shrink: 0; margin-top: 3px; }
+    .sec-rule-sm { height: 36px; }
+    .sec-rule-violet { background: linear-gradient(180deg, var(--violet), var(--violet-mid)); }
+    .sec-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.3rem; }
+    .sec-title   { font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-weight: 800; color: var(--text-heading); letter-spacing: -0.5px; line-height: 1.2; margin: 0; }
+
+    /* ── PELAJARAN SECTION ── */
+    .pelajaran-section { padding: 88px 0; background: var(--white); }
+
+    .pelajaran-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-xs);
+      position: relative; overflow: hidden;
+      transition: all 0.25s ease;
+    }
+    .pelajaran-block:hover { box-shadow: var(--shadow-md); border-color: var(--indigo-mid); }
+    .pelajaran-block::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 0 4px 4px 0; }
+    .pelajaran-block.bl-indigo::before  { background: var(--indigo); }
+    .pelajaran-block.bl-sky::before     { background: var(--sky); }
+    .pelajaran-block.bl-emerald::before { background: var(--emerald); }
+    .pelajaran-block.bl-amber::before   { background: var(--amber); }
+    .pelajaran-block.bl-violet::before  { background: var(--violet); }
+
+    .pelajaran-phase {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+      border-radius: 100px; padding: 0.25rem 0.75rem; margin-bottom: 0.65rem;
+    }
+    .pelajaran-title { font-size: 1rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.6rem; letter-spacing: -0.2px; }
+    .pelajaran-text  { font-size: 0.88rem; color: var(--text-body); line-height: 1.9; margin: 0; }
+    .pelajaran-text em { font-style: italic; color: var(--text-heading); font-weight: 500; }
+
+    /* ── TANTANGAN SECTION ── */
+    .tantangan-section { padding: 88px 0; background: var(--bg-tint); }
+
+    .tantangan-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      height: 100%;
+      box-shadow: var(--shadow-xs);
+      transition: all 0.25s ease;
+    }
+    .tantangan-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--indigo-mid); }
+    .tantangan-num {
+      width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem;
+    }
+    .tantangan-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      padding: 0.22rem 0.65rem; border-radius: 100px; margin-bottom: 0.6rem;
+    }
+    .tantangan-title { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem; }
+    .tantangan-prob  { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.9rem; }
+    .tantangan-sol-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--emerald); margin-bottom: 0.35rem; }
+    .tantangan-sol   { font-size: 0.83rem; color: var(--text-body); line-height: 1.75; font-style: italic; margin: 0; }
+    .tantangan-sol em { font-style: normal; font-weight: 700; color: var(--text-heading); }
+
+    /* ── UMPAN BALIK SECTION ── */
+    .feedback-section { padding: 88px 0; background: var(--white); }
+
+    .feedback-person-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      height: 100%;
+    }
+    .feedback-person-header {
+      padding: 1.75rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .feedback-avatar {
+      width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: 700; color: white;
+    }
+    .feedback-person-name { font-size: 0.95rem; font-weight: 700; color: var(--text-heading); margin-bottom: 2px; }
+    .feedback-person-role { font-size: 0.75rem; color: var(--text-muted); line-height: 1.4; }
+    .feedback-items { padding: 0 1.75rem 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .feedback-item {
+      background: var(--bg-tint);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      transition: all 0.2s ease;
+    }
+    .feedback-item:hover { border-color: var(--indigo-mid); background: var(--indigo-light); }
+    .feedback-item-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .feedback-item-text { font-size: 0.83rem; color: var(--text-body); line-height: 1.75; }
+    .feedback-item-text em { font-style: italic; color: var(--text-heading); font-weight: 600; }
+
+    /* ── MODEL GURU SECTION ── */
+    .model-guru-section { padding: 88px 0; background: var(--bg-tint); }
+
+    .misi-banner {
+      background: linear-gradient(135deg, var(--indigo) 0%, #818CF8 100%);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      position: relative; overflow: hidden;
+    }
+    .misi-banner::before { content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,255,255,0.06); pointer-events: none; }
+    .misi-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.75rem; }
+    .misi-text  { font-size: clamp(0.95rem, 2vw, 1.15rem); font-weight: 400; color: rgba(255,255,255,0.95); line-height: 1.8; font-style: italic; margin: 0; }
+    .misi-text strong { font-weight: 700; color: white; font-style: normal; }
+
+    /* ── FILOSOFI SECTION ── */
+    .filosofi-section { padding: 88px 0; background: var(--white); }
+
+    .filosofi-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 2.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-xs);
+      transition: all 0.25s ease;
+      position: relative; overflow: hidden;
+    }
+    .filosofi-block:hover { box-shadow: var(--shadow-md); border-color: var(--violet-mid); }
+    .filosofi-block::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--violet), #A78BFA); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+    .filosofi-block:hover::after { transform: scaleX(1); }
+
+    .filosofi-num { font-size: 2.8rem; font-weight: 800; color: var(--violet-mid); letter-spacing: -2px; line-height: 1; margin-bottom: 0.5rem; }
+    .filosofi-title { font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.75rem; letter-spacing: -0.3px; }
+    .filosofi-text  { font-size: 0.9rem; color: var(--text-body); line-height: 1.95; margin: 0; }
+    .filosofi-text em { font-style: italic; color: var(--text-heading); font-weight: 500; }
+    .filosofi-text strong { font-weight: 700; color: var(--text-heading); }
+
+    /* ── PENUTUP QUOTE ── */
+    .penutup-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--violet) 0%, #6366F1 50%, var(--indigo) 100%);
+    }
+    .quote-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+    .quote-mark  { font-size: 5rem; line-height: 0.7; font-family: Georgia, serif; color: rgba(255,255,255,0.2); display: block; margin-bottom: 1.5rem; }
+    .quote-main  { font-size: clamp(1rem, 2.2vw, 1.35rem); font-weight: 300; color: rgba(255,255,255,0.95); line-height: 1.85; font-style: italic; margin-bottom: 1.5rem; }
+    .quote-main strong { font-weight: 700; color: white; font-style: normal; }
+    .quote-attr  { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+
+    /* ── CTA ── */
+    .cta-section { padding: 80px 0; background: var(--bg-tint); border-top: 1px solid var(--border); }
+    .cta-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem; display: flex; align-items: center; gap: 1.5rem; transition: all 0.25s ease; text-decoration: none; box-shadow: var(--shadow-xs); }
+    .cta-card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--indigo-mid); }
+    .cta-icon  { width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .cta-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+    .cta-title { font-size: 1.05rem; font-weight: 700; color: var(--text-heading); margin-bottom: 3px; }
+    .cta-desc  { font-size: 0.82rem; color: var(--text-muted); }
+    .cta-arrow { margin-left: auto; font-size: 1.2rem; color: var(--text-faint); transition: all 0.25s ease; flex-shrink: 0; }
+    .cta-card:hover .cta-arrow { color: var(--indigo); transform: translateX(4px); }
+
+    /* ── FOOTER ── */
+    .site-footer { background: var(--text-heading); color: #94A3B8; padding: 3rem 0; }
+    .footer-brand-name { font-size: 1rem; font-weight: 700; color: white; letter-spacing: -0.3px; margin-bottom: 4px; }
+    .footer-brand-sub  { font-size: 0.75rem; color: #64748B; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; list-style: none; margin: 0; padding: 0; justify-content: flex-end; }
+    .footer-links a { font-size: 0.78rem; font-weight: 500; color: #64748B; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-divider { border-color: #1E293B; margin: 1.75rem 0; }
+    .footer-copy { font-size: 0.72rem; color: #475569; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg-subtle); }
+    ::-webkit-scrollbar-thumb { background: var(--violet-mid); border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--violet); }
+
+    @media (max-width: 991px) { .page-header, .pelajaran-section, .tantangan-section, .feedback-section, .model-guru-section, .filosofi-section, .cta-section { padding: 64px 0; } }
+    @media (max-width: 767px) { .footer-links { justify-content: flex-start; } .cta-card { flex-direction: column; text-align: center; } .cta-arrow { margin-left: 0; } }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav class="site-nav" id="siteNav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="nav-brand" href="index.html">
+          <span class="nav-brand-name">Risalatul Husna</span>
+          <span class="nav-brand-sub">E-Portfolio · PPG Informatika 2026</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="profile.html">Tentang Saya</a></li>
+          <li><a href="artifacts.html">Artefak &amp; Analisis</a></li>
+          <li><a href="reflection.html" class="active">Refleksi &amp; Filosofi</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <i class="bi bi-list" id="navIcon" style="font-size:1.1rem;"></i>
+          <span style="font-size:0.8rem;font-weight:600;color:var(--text-body);">Menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html">Beranda</a>
+        <a href="profile.html">Tentang Saya</a>
+        <a href="artifacts.html">Artefak &amp; Analisis</a>
+        <a href="reflection.html" class="active">Refleksi &amp; Filosofi</a>
+        <a href="contact.html">Kontak</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ PAGE HEADER ══ -->
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb-nav" data-aos="fade-right" data-aos-duration="600">
+        <a href="index.html">Beranda</a>
+        <i class="bi bi-chevron-right"></i>
+        <span style="color:var(--violet);">Refleksi &amp; Filosofi</span>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="page-header-label" data-aos="fade-up" data-aos-duration="700">
+            <i class="bi bi-journal-richtext"></i> Refleksi &amp; Filosofi
+          </div>
+          <h1 class="page-header-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80">
+            Refleksi Akhir:<br>Dari Orientasi hingga Tim Super
+          </h1>
+          <p class="page-header-desc" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160">
+            "Apa yang saya pelajari, tantangan yang saya hadapi, dan bagaimana semua itu membentuk saya — serta prinsip dan nilai yang mendasari setiap langkah saya di kelas."
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ PELAJARAN SEPANJANG PPL ══ -->
+  <section class="pelajaran-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--indigo);">Bagian A</div>
+          <h2 class="sec-title">Apa yang Saya Pelajari Sepanjang PPL Terbimbing</h2>
+        </div>
+      </div>
+
+      <div class="row g-0">
+        <div class="col-lg-8">
+
+          <div class="pelajaran-block bl-indigo" data-aos="fade-up" data-aos-duration="800">
+            <div class="pelajaran-phase" style="background:var(--indigo-light);color:var(--indigo);">
+              <i class="bi bi-door-open-fill"></i> Fase Orientasi
+            </div>
+            <div class="pelajaran-title">Manajemen Sekolah adalah Sistem Hidup, Bukan Bagan Organisasi</div>
+            <p class="pelajaran-text">
+              Perjalanan PPL Terbimbing saya dimulai jauh sebelum saya pertama kali berdiri di depan kelas — dari ruang orientasi pada 9 Februari 2026. Dari sini saya belajar bahwa manajemen sekolah yang baik bukan sekadar struktur di atas kertas. Ia adalah sistem hidup yang terasa dalam setiap kebijakan — dari cara guru diakuntabilkan melalui e-Dialog, cara siswa dikembangkan melalui program Guru Wali, hingga cara inovasi mandiri seperti perakitan komputer di jurusan TKJ lahir dari keterbatasan anggaran.
+            </p>
+          </div>
+
+          <div class="pelajaran-block bl-sky" data-aos="fade-up" data-aos-duration="800" data-aos-delay="60">
+            <div class="pelajaran-phase" style="background:var(--sky-light);color:var(--sky);">
+              <i class="bi bi-eye-fill"></i> Fase Observasi &amp; Asistensi
+            </div>
+            <div class="pelajaran-title">Konteks yang Salah Sama Buruknya dengan Materi yang Salah</div>
+            <p class="pelajaran-text">
+              Pelajaran paling berharga dari fase ini datang dari kelas X B DKV ketika saya mendampingi pembelajaran Excel. Di sana saya menemukan sesuatu yang akan terus saya bawa: <em>siswa yang berbeda latar belakang keahlian membutuhkan konteks yang berbeda untuk materi yang sama.</em> Guru Pamong saya, Ibu Ida Mardiyana, mengingatkan saya bahwa mengajar siswa DKV tentang rumus IF dengan contoh "nilai ujian" adalah seperti mengajarkan renang di darat — teknisnya benar, tapi konteksnya salah.
+            </p>
+          </div>
+
+          <div class="pelajaran-block bl-emerald" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
+            <div class="pelajaran-phase" style="background:var(--emerald-light);color:var(--emerald);">
+              <i class="bi bi-journal-code"></i> Siklus 1
+            </div>
+            <div class="pelajaran-title">Kelas Tidak Selalu Bisa Direncanakan — dan Itu Bukan Masalah</div>
+            <p class="pelajaran-text">
+              Siklus 1 mengajarkan saya bahwa <em>kemampuan beradaptasi adalah kompetensi guru yang tidak bisa diajarkan dari buku teks.</em> Mengajar secara mendadak tanpa modul ajar mandiri justru memaksa saya mengandalkan sesuatu yang lebih mendasar: pemahaman materi, kepekaan terhadap dinamika kelas, dan kepercayaan pada diri sendiri.
+            </p>
+          </div>
+
+          <div class="pelajaran-block bl-amber" data-aos="fade-up" data-aos-duration="800" data-aos-delay="180">
+            <div class="pelajaran-phase" style="background:var(--amber-light);color:var(--amber);">
+              <i class="bi bi-journal-code"></i> Siklus 2
+            </div>
+            <div class="pelajaran-title">Inovasi Model Harus Diimbangi Kontrol Teknis di Lapangan</div>
+            <p class="pelajaran-text">
+              Siklus 2 mengajarkan saya bahwa <em>desain yang bagus di atas kertas belum tentu berjalan sempurna di kelas nyata</em> — dan gap itulah yang menjadi data paling berharga untuk tumbuh. Pola free-rider dan miskonsepsi tipe data yang teridentifikasi di sini bukan kegagalan — melainkan temuan berharga yang mendorong lahirnya inovasi di Siklus 3.
+            </p>
+          </div>
+
+          <div class="pelajaran-block bl-violet" data-aos="fade-up" data-aos-duration="800" data-aos-delay="240">
+            <div class="pelajaran-phase" style="background:var(--violet-light);color:var(--violet);">
+              <i class="bi bi-journal-code"></i> Siklus 3
+            </div>
+            <div class="pelajaran-title">Konsistensi Mengeksekusi Rencana adalah Penghormatan kepada Siswa</div>
+            <p class="pelajaran-text">
+              Siklus 3 mengajarkan saya bahwa konsistensi mengeksekusi rencana adalah bentuk penghormatan tertinggi kepada siswa. Ketika saya berkomitmen pada mekanisme Sprint Rotasi Keyboard dengan presisi menit per menit, saya tidak hanya menjalankan teknik mengajar — <em>saya menunjukkan kepada siswa bahwa saya serius memperlakukan waktu belajar mereka sebagai sesuatu yang berharga.</em>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-4 ps-lg-4 mt-4 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
+          <div style="position:sticky;top:84px;">
+            <div style="background:var(--bg-tint);border:1px solid var(--border);border-radius:var(--radius-md);padding:1.75rem;box-shadow:var(--shadow-xs);margin-bottom:1.25rem;">
+              <div style="font-size:0.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-faint);margin-bottom:1rem;">Ringkasan Fase PPL</div>
+              <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:var(--indigo);flex-shrink:0;"></div>
+                  <span style="font-size:0.82rem;color:var(--text-body);font-weight:500;">Orientasi — 9 Feb 2026</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:var(--sky);flex-shrink:0;"></div>
+                  <span style="font-size:0.82rem;color:var(--text-body);font-weight:500;">Observasi &amp; Asistensi</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:var(--emerald);flex-shrink:0;"></div>
+                  <span style="font-size:0.82rem;color:var(--text-body);font-weight:500;">Siklus 1 — 5 Mei 2026</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:var(--amber);flex-shrink:0;"></div>
+                  <span style="font-size:0.82rem;color:var(--text-body);font-weight:500;">Siklus 2 — 13 Mei 2026</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <div style="width:8px;height:8px;border-radius:50%;background:var(--violet);flex-shrink:0;"></div>
+                  <span style="font-size:0.82rem;color:var(--text-body);font-weight:500;">Siklus 3 — 22 Mei 2026</span>
+                </div>
+              </div>
+            </div>
+            <div style="background:linear-gradient(135deg,var(--indigo-light),var(--violet-light));border:1px solid var(--indigo-mid);border-radius:var(--radius-md);padding:1.5rem;">
+              <div style="font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--indigo);margin-bottom:0.5rem;">Insight Terbesar</div>
+              <p style="font-size:0.83rem;color:var(--text-body);line-height:1.8;margin:0;font-style:italic;">
+                "Desain yang bagus di atas kertas belum tentu berjalan sempurna di kelas nyata — dan gap itulah yang menjadi data paling berharga untuk tumbuh."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TANTANGAN & SOLUSI ══ -->
+  <section class="tantangan-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule sec-rule-violet"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--violet);">Bagian B</div>
+          <h2 class="sec-title">Pengalaman Paling Menantang &amp; Solusinya</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+          <div class="tantangan-card">
+            <div class="tantangan-num" style="background:var(--indigo-light);color:var(--indigo);">01</div>
+            <div class="tantangan-tag" style="background:var(--amber-light);color:var(--amber);">Siklus 1</div>
+            <div class="tantangan-title">Mengajar Tanpa Persiapan</div>
+            <p class="tantangan-prob">Diminta mengajar secara mendadak tanpa modul ajar mandiri — sebuah situasi yang tidak ada dalam skenario persiapan manapun.</p>
+            <div class="tantangan-sol-label">✦ Solusi yang Bekerja</div>
+            <p class="tantangan-sol">Memanfaatkan sistem undian kertas lintingan yang mengubah presentasi konvensional menjadi sesi penuh ketegangan positif. <em>Kemampuan beradaptasi adalah kompetensi guru yang tidak bisa diajarkan dari buku teks.</em></p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div class="tantangan-card">
+            <div class="tantangan-num" style="background:var(--sky-light);color:var(--sky);">02</div>
+            <div class="tantangan-tag" style="background:var(--sky-light);color:var(--sky);">Siklus 2 → 3</div>
+            <div class="tantangan-title">Memutus Pola Free-Rider</div>
+            <p class="tantangan-prob">Fenomena siswa yang hanya menonton teman lebih mahir mengetik — pendekatan verbal hanya mengubah perilaku sementara, tidak menyelesaikan akar masalah.</p>
+            <div class="tantangan-sol-label">✦ Solusi yang Bekerja</div>
+            <p class="tantangan-sol">Sprint Rotasi Keyboard — solusi <em>struktural</em> yang secara fisik memindahkan siapa yang memegang keyboard setiap 15 menit. <em>Masalah perilaku yang berulang membutuhkan solusi struktural, bukan solusi verbal.</em></p>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="tantangan-card">
+            <div class="tantangan-num" style="background:var(--violet-light);color:var(--violet);">03</div>
+            <div class="tantangan-tag" style="background:var(--violet-light);color:var(--violet);">Siklus 2 → 3</div>
+            <div class="tantangan-title">Miskonsepsi yang Persisten</div>
+            <p class="tantangan-prob">Beberapa siswa tetap membungkus angka dalam tanda petik meski sudah dijelaskan berulang kali — penjelasan ulang tidak cukup mengubah skema kognitif.</p>
+            <div class="tantangan-sol-label">✦ Solusi yang Bekerja</div>
+            <p class="tantangan-sol">Konfrontasi empiris langsung — siswa mengetik dua eksperimen berbeda, melihat hasilnya sendiri. <em>Perubahan skema kognitif membutuhkan pengalaman, bukan hanya informasi.</em></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ UMPAN BALIK ══ -->
+  <section class="feedback-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--indigo);">Bagian C</div>
+          <h2 class="sec-title">Umpan Balik yang Paling Bermakna</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- GP -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+          <div class="feedback-person-card">
+            <div class="feedback-person-header" style="background:linear-gradient(135deg,var(--indigo-light),var(--bg-tint));">
+              <div class="feedback-avatar" style="background:var(--indigo);">IM</div>
+              <div>
+                <div class="feedback-person-name">Ida Mardiyana, S.Kom.</div>
+                <div class="feedback-person-role">Guru Pamong<br>SMK Negeri 1 Banjarmasin</div>
+              </div>
+            </div>
+            <div class="feedback-items">
+              <div class="feedback-item">
+                <div class="feedback-item-dot" style="background:var(--indigo);"></div>
+                <div class="feedback-item-text"><em>"Kontekstualisasikan materimu dengan jurusan siswa"</em> — lahir dari sesi asistensi DKV, diterapkan konsisten mulai Siklus 2 dengan skenario kasir kantin, dan menjadi kekuatan terbesar desain pembelajaran saya.</div>
+              </div>
+              <div class="feedback-item">
+                <div class="feedback-item-dot" style="background:var(--sky);"></div>
+                <div class="feedback-item-text"><em>"Jangan hanya mengandalkan pendekatan personal — kontrol teknis di lapangan sama pentingnya"</em> — umpan balik setelah Siklus 2 yang langsung melahirkan sistem Sprint Rotasi Keyboard.</div>
+              </div>
+              <div class="feedback-item">
+                <div class="feedback-item-dot" style="background:var(--emerald);"></div>
+                <div class="feedback-item-text"><em>"Terus latih kemandirian problem-solving siswa dalam membaca error secara mandiri"</em> — masukan dari Siklus 3 yang menjadi agenda saya untuk PPL Mandiri ke depan.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DPL -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div class="feedback-person-card">
+            <div class="feedback-person-header" style="background:linear-gradient(135deg,var(--violet-light),var(--bg-tint));">
+              <div class="feedback-avatar" style="background:var(--violet);">NW</div>
+              <div>
+                <div class="feedback-person-name">Nuruddin Wiranda, S.Kom., M.Cs.</div>
+                <div class="feedback-person-role">Dosen Pembimbing Lapangan (DPL)<br>Universitas Lambung Mangkurat</div>
+              </div>
+            </div>
+            <div class="feedback-items">
+              <div class="feedback-item">
+                <div class="feedback-item-dot" style="background:var(--violet);"></div>
+                <div class="feedback-item-text">Bimbingan beliau menguatkan <em>landasan teori dari setiap inovasi</em> yang saya terapkan — memastikan bahwa apa yang saya lakukan di kelas bukan sekadar eksperimen intuitif, melainkan praktik yang dapat dipertanggungjawabkan secara akademis dalam kerangka PTK.</div>
+              </div>
+              <div class="feedback-item">
+                <div class="feedback-item-dot" style="background:var(--indigo);"></div>
+                <div class="feedback-item-text">Dorongan untuk mengaitkan setiap temuan lapangan dengan teori pedagogi yang relevan — <em>STAD, Vygotsky, dan Growth Mindset Dweck</em> — menjadi kerangka berpikir yang memperkuat narasi reflektif saya.</div>
+              </div>
+              <div class="feedback-item">
+                <div class="feedback-item-dot" style="background:var(--emerald);"></div>
+                <div class="feedback-item-text">Arahan untuk mendokumentasikan inovasi secara sistematis agar dapat digunakan sebagai <em>referensi dan dikembangkan dalam penelitian tindakan kelas (PTK)</em> yang lebih formal ke depannya.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MODEL GURU ══ -->
+  <section class="model-guru-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule sec-rule-violet"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--violet);">Halaman 5 — Model Guru</div>
+          <h2 class="sec-title">Model Guru yang Ingin Saya Wujudkan</h2>
+        </div>
+      </div>
+
+      <div class="misi-banner" data-aos="fade-up" data-aos-duration="900">
+        <div class="misi-label">Misi Saya sebagai Guru</div>
+        <p class="misi-text">
+          Menjadi guru Informatika yang tidak hanya mengajarkan <strong>cara menggunakan teknologi</strong>, tetapi membantu setiap siswa membangun keyakinan bahwa mereka mampu berpikir secara logis, memecahkan masalah, dan belajar dari kesalahan — <strong>tanpa terkecuali, tanpa memandang latar belakang mereka.</strong>
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:2rem;height:100%;box-shadow:var(--shadow-xs);transition:all 0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--indigo-mid)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-xs)';this.style.borderColor='var(--border)'">
+            <div style="width:44px;height:44px;border-radius:11px;background:var(--indigo-light);border:1px solid var(--indigo-mid);color:var(--indigo);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem;"><i class="bi bi-search"></i></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--indigo);margin-bottom:0.35rem;">Pilar 1</div>
+            <div style="font-size:0.97rem;font-weight:700;color:var(--text-heading);margin-bottom:0.5rem;">Guru sebagai Peneliti Reflektif</div>
+            <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.8;margin:0;">Setiap kali keluar dari kelas, saya tidak sekadar selesai mengajar — saya mengumpulkan data. Guru yang tidak merefleksikan praktiknya adalah guru yang berhenti berkembang.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:2rem;height:100%;box-shadow:var(--shadow-xs);transition:all 0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--indigo-mid)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-xs)';this.style.borderColor='var(--border)'">
+            <div style="width:44px;height:44px;border-radius:11px;background:var(--violet-light);border:1px solid var(--violet-mid);color:var(--violet);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem;"><i class="bi bi-arrow-repeat"></i></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:0.35rem;">Pilar 2</div>
+            <div style="font-size:0.97rem;font-weight:700;color:var(--text-heading);margin-bottom:0.5rem;">Guru sebagai Inovator Kontekstual</div>
+            <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.8;margin:0;">Kurikulum adalah kompas, bukan penjara. Saya berkomitmen menerjemahkan materi abstrak menjadi pengalaman belajar yang relevan dengan dunia nyata siswa.</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:2rem;height:100%;box-shadow:var(--shadow-xs);transition:all 0.25s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--shadow-md)';this.style.borderColor='var(--indigo-mid)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-xs)';this.style.borderColor='var(--border)'">
+            <div style="width:44px;height:44px;border-radius:11px;background:var(--emerald-light);border:1px solid var(--emerald-mid);color:var(--emerald);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1rem;"><i class="bi bi-graph-up-arrow"></i></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--emerald);margin-bottom:0.35rem;">Pilar 3</div>
+            <div style="font-size:0.97rem;font-weight:700;color:var(--text-heading);margin-bottom:0.5rem;">Guru sebagai Model Growth Mindset</div>
+            <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.8;margin:0;">Tidak ada siswa yang "tidak berbakat coding." Saya ingin setiap siswa keluar dari kelas dengan satu keyakinan tambahan: <em>"Saya bisa belajar hal-hal yang sulit."</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FILOSOFI MENGAJAR ══ -->
+  <section class="filosofi-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule sec-rule-violet"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--violet);">Halaman 7 — Filosofi</div>
+          <h2 class="sec-title">Filosofi Mengajar Saya</h2>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+          <div class="filosofi-block">
+            <div class="filosofi-num">01</div>
+            <div class="filosofi-title">Menuntun, Bukan Mengisi</div>
+            <p class="filosofi-text">Setelah melewati tiga siklus pembelajaran terbimbing, satu siklus asistensi, dan ratusan jam observasi di SMKN 1 Banjarmasin, jawaban saya menjadi semakin jelas — tugas seorang guru bukan mengisi ember yang kosong, melainkan <strong>menyalakan api yang sudah ada</strong>. Ki Hadjar Dewantara menyebutnya <em>menuntun</em> — mengarahkan kekuatan kodrat anak menuju keselamatan dan kebahagiaan, bukan memaksa mereka menjadi versi yang kita bayangkan. Bagi saya sebagai guru Informatika, ini berarti saya tidak datang ke kelas untuk membuktikan bahwa saya tahu lebih banyak. Saya datang untuk membantu setiap siswa menemukan bahwa <em>mereka pun bisa</em> berpikir secara logis dan tidak menyerah ketika layar komputer menampilkan teks merah.</p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="80">
+          <div class="filosofi-block">
+            <div class="filosofi-num">02</div>
+            <div class="filosofi-title">Error adalah Guru yang Paling Jujur</div>
+            <p class="filosofi-text">Salah satu momen paling transformatif adalah ketika saya pertama kali sengaja memunculkan error di depan kelas di Siklus 2 — dan meresponsnya dengan senyum. Saya melihat ekspresi siswa berubah. Mereka mengharapkan saya panik. Saya tidak. Dan itulah yang mengubah cara mereka melihat error. Filosofi ini berakar pada <em>Growth Mindset</em> Carol Dweck — keyakinan bahwa kemampuan bukan bakat bawaan, melainkan sesuatu yang dibangun melalui usaha dan pembelajaran dari kesalahan. Saya sendiri adalah bukti hidup dari keyakinan ini. Ketika saya mengajarkan bahwa <em>NameError bukan tanda bahwa mereka tidak mampu</em> — melainkan pesan dari komputer yang menunjukkan persis di mana masalahnya — saya tidak hanya mengajarkan debugging. <strong>Saya mengajarkan cara menghadapi hambatan hidup.</strong></p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="160">
+          <div class="filosofi-block">
+            <div class="filosofi-num">03</div>
+            <div class="filosofi-title">Konteks adalah Jembatan, Relevansi adalah Kunci</div>
+            <p class="filosofi-text">Pengalaman mengajar di SMKN 1 Banjarmasin mengajarkan saya bahwa materi terbaik sekalipun akan gagal mencapai siswa jika tidak disampaikan dalam bahasa yang mereka pahami. Siswa Pemasaran tidak hidup di dunia abstraksi variabel — mereka hidup di dunia kasir, stok barang, dan keuntungan penjualan. Ketika saya menerjemahkan variabel Python menjadi <em>"nama kontak di HP"</em>, saya sedang menghormati kodrat dan konteks siswa. Guru yang baik bukan guru yang menyederhanakan ilmu sampai kehilangan kedalamannya — melainkan guru yang mampu <strong>membangun jembatan antara kedalaman ilmu dengan kenyataan hidup siswa</strong>, sehingga keduanya bertemu di titik yang bermakna.</p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="240">
+          <div class="filosofi-block">
+            <div class="filosofi-num">04</div>
+            <div class="filosofi-title">Guru sebagai Pamong dan Peneliti Seumur Hidup</div>
+            <p class="filosofi-text">Saya percaya bahwa guru yang berhenti belajar adalah guru yang perlahan kehilangan hak moral untuk mengajar. Setiap siklus pembelajaran yang saya jalani bukan hanya kegiatan akademis — ia adalah siklus penelitian kecil: hipotesis (desain modul), eksperimen (pelaksanaan di kelas), data (refleksi dan temuan), dan revisi (perbaikan siklus berikutnya). Filosofi ini bukan sekadar ambisi profesional — <strong>ia adalah janji saya kepada setiap siswa</strong> yang pernah dan akan duduk di kelas saya: bahwa saya akan selalu hadir dengan yang terbaik yang bisa saya berikan, dan <em>saya tidak akan pernah berhenti mencari cara untuk memberikan yang lebih baik lagi.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PENUTUP QUOTE ══ -->
+  <section class="penutup-section">
+    <div class="container" data-aos="fade-up" data-aos-duration="900">
+      <div class="quote-inner">
+        <span class="quote-mark">&ldquo;</span>
+        <p class="quote-main">
+          Mendidik bukan tentang mengisi ember yang kosong — melainkan tentang menyalakan <strong>api</strong> yang sudah ada di dalam diri setiap anak. Dan tugas saya adalah memastikan api itu tidak pernah padam.
+        </p>
+        <div class="quote-attr">Filosofi Mengajar — Risalatul Husna · PPG Calon Guru Informatika 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row mb-4" data-aos="fade-up">
+        <div class="col">
+          <div class="sec-heading mb-0">
+            <div class="sec-rule sec-rule-sm"></div>
+            <div>
+              <div class="sec-eyebrow">Selanjutnya</div>
+              <h2 class="sec-title" style="font-size:1.5rem;">Lanjutkan Menjelajahi</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <a href="contact.html" class="cta-card">
+            <div class="cta-icon" style="background:var(--emerald-light);border:1px solid var(--emerald-mid);color:var(--emerald);"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <div class="cta-label" style="color:var(--emerald);">Halaman Terakhir</div>
+              <div class="cta-title">Hubungi Saya</div>
+              <div class="cta-desc">Terbuka untuk diskusi, kolaborasi, dan berbagi pengalaman seputar pendidikan Informatika.</div>
+            </div>
+            <i class="bi bi-arrow-right cta-arrow"></i>
+          </a>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="80">
+          <a href="artifacts.html" class="cta-card">
+            <div class="cta-icon" style="background:var(--sky-light);border:1px solid var(--sky-mid);color:var(--sky);"><i class="bi bi-folder2-open"></i></div>
+            <div>
+              <div class="cta-label" style="color:var(--sky);">Kembali ke</div>
+              <div class="cta-title">Artefak &amp; Analisis</div>
+              <div class="cta-desc">Lihat kembali 3 siklus pembelajaran terbimbing beserta dokumentasinya.</div>
+            </div>
+            <i class="bi bi-arrow-right cta-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-4">
+        <div>
+          <div class="footer-brand-name">Risalatul Husna</div>
+          <div class="footer-brand-sub">PPG Calon Guru Informatika · Universitas Lambung Mangkurat · 2026</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="profile.html">Tentang Saya</a></li>
+          <li><a href="artifacts.html">Artefak</a></li>
+          <li><a href="reflection.html">Refleksi</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+        </ul>
+      </div>
+      <hr class="footer-divider">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <div class="footer-copy">© 2026 Risalatul Husna. E-Portfolio PPG Calon Guru Informatika.</div>
+        <div class="footer-copy">SMK Negeri 1 Banjarmasin · Banjarmasin, Kalimantan Selatan</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true, offset: 50, easing: 'ease-out-cubic' });
+    const nav = document.getElementById('siteNav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('nav-scrolled', window.scrollY > 20); }, { passive: true });
+    const btn = document.getElementById('navToggle'), mobileNav = document.getElementById('mobileNav'), icon = document.getElementById('navIcon');
+    btn.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); icon.className = open ? 'bi bi-x-lg' : 'bi bi-list'; icon.style.fontSize = '1.1rem'; });
+  </script>
+</body>
+</html>
