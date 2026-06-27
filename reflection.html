@@ -254,6 +254,65 @@
 
     @media (max-width: 991px) { .page-header, .pelajaran-section, .tantangan-section, .feedback-section, .model-guru-section, .filosofi-section, .cta-section { padding: 64px 0; } }
     @media (max-width: 767px) { .footer-links { justify-content: flex-start; } .cta-card { flex-direction: column; text-align: center; } .cta-arrow { margin-left: 0; } }
+  
+    /* ── KEKUATAN KELEMAHAN CARD ── */
+    .kk-section { padding: 88px 0; background: var(--white); }
+    .kk-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-md); padding: 2rem;
+      box-shadow: var(--shadow-xs); height: 100%;
+      transition: all 0.25s ease; position: relative; overflow: hidden;
+    }
+    .kk-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .kk-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .kk-card.kk-strength::before { background: linear-gradient(90deg, var(--emerald), #34D399); }
+    .kk-card.kk-weakness::before { background: linear-gradient(90deg, var(--amber), #FCD34D); }
+    .kk-card.kk-rtl::before     { background: linear-gradient(90deg, var(--indigo), #818CF8); }
+    .kk-card-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.5rem; }
+    .kk-icon {
+      width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .kk-badge {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 100px;
+    }
+    .kk-title { font-size: 1rem; font-weight: 800; color: var(--text-heading); letter-spacing: -0.3px; }
+    .kk-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem; }
+    .kk-list li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.87rem; color: var(--text-body); line-height: 1.75;
+      padding: 0.75rem; border-radius: var(--radius-sm);
+      background: var(--bg-tint); border: 1px solid var(--border);
+    }
+    .kk-list li i { flex-shrink: 0; margin-top: 3px; font-size: 0.85rem; }
+    .kk-list em { font-style: italic; color: var(--text-heading); font-weight: 600; }
+
+    /* ── KOMPETENSI GRID ── */
+    .kompetensi-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .kompetensi-item {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 1.25rem;
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      transition: all 0.2s ease; box-shadow: var(--shadow-xs);
+    }
+    .kompetensi-item:hover { border-color: var(--indigo-mid); box-shadow: var(--shadow-sm); }
+    .kompetensi-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px;
+    }
+    .kompetensi-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-faint); margin-bottom: 3px; }
+    .kompetensi-title { font-size: 0.88rem; font-weight: 700; color: var(--text-heading); margin-bottom: 3px; }
+    .kompetensi-desc  { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; }
+
+    @media (max-width: 767px) {
+      .kompetensi-grid { grid-template-columns: 1fr; }
+    }
+
   </style>
 </head>
 <body>
@@ -543,6 +602,128 @@
     </div>
   </section>
 
+  <!-- ══ KEKUATAN, KELEMAHAN & RTL ══ -->
+  <section class="kk-section">
+    <div class="container">
+
+      <div class="sec-heading" data-aos="fade-up">
+        <div class="sec-rule"></div>
+        <div>
+          <div class="sec-eyebrow" style="color:var(--indigo);">Bagian D — Evaluasi Diri</div>
+          <h2 class="sec-title">Kekuatan, Kelemahan &amp; Rencana Tindak Lanjut</h2>
+        </div>
+      </div>
+
+      <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.8;max-width:640px;margin-bottom:2.5rem;" data-aos="fade-up" data-aos-delay="60">
+        Refleksi yang jujur bukan sekadar merayakan pencapaian — melainkan juga mengakui area yang perlu tumbuh, dan merencanakan langkah konkret ke depan. Berikut adalah penilaian diri saya setelah menyelesaikan PPL Terbimbing.
+      </p>
+
+      <div class="row g-4">
+
+        <!-- Kekuatan -->
+        <div class="col-lg-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+          <div class="kk-card kk-strength">
+            <div class="kk-card-header">
+              <div class="kk-icon" style="background:var(--emerald-light);color:var(--emerald);border:1px solid var(--emerald-mid);">
+                <i class="bi bi-patch-check-fill"></i>
+              </div>
+              <div>
+                <span class="kk-badge" style="background:var(--emerald-light);color:var(--emerald);">Kekuatan</span>
+                <div class="kk-title" style="margin-top:4px;">Yang Sudah Saya Miliki</div>
+              </div>
+            </div>
+            <ul class="kk-list">
+              <li>
+                <i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>
+                <span><em>Kontekstualisasi materi</em> — kemampuan menerjemahkan konsep abstrak pemrograman ke dalam skenario dunia nyata siswa (kasir kantin, penjualan produk).</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>
+                <span><em>Inovasi berbasis data</em> — setiap inovasi (Sprint Rotasi Keyboard) lahir dari temuan empiris di kelas, bukan sekadar intuisi.</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>
+                <span><em>Adaptabilitas</em> — mampu mengajar secara efektif bahkan dalam situasi tidak terduga tanpa modul ajar mandiri (Siklus 1).</span>
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>
+                <span><em>Desain LKPD terstruktur</em> — scaffolding bertahap dari terbimbing ke mandiri yang sesuai dengan prinsip ZPD Vygotsky.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kelemahan -->
+        <div class="col-lg-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div class="kk-card kk-weakness">
+            <div class="kk-card-header">
+              <div class="kk-icon" style="background:var(--amber-light);color:var(--amber);border:1px solid #FDE68A;">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+              </div>
+              <div>
+                <span class="kk-badge" style="background:var(--amber-light);color:var(--amber);">Kelemahan</span>
+                <div class="kk-title" style="margin-top:4px;">Yang Perlu Saya Kembangkan</div>
+              </div>
+            </div>
+            <ul class="kk-list">
+              <li>
+                <i class="bi bi-arrow-right-circle-fill" style="color:var(--amber);"></i>
+                <span><em>Diferensiasi pembelajaran</em> — belum optimal dalam menyesuaikan pendekatan untuk siswa dengan gaya belajar yang sangat berbeda dalam satu kelas.</span>
+              </li>
+              <li>
+                <i class="bi bi-arrow-right-circle-fill" style="color:var(--amber);"></i>
+                <span><em>Kemandirian problem-solving siswa</em> — cenderung terlalu cepat memberikan scaffolding sehingga beberapa siswa belum terbiasa membaca pesan error secara mandiri.</span>
+              </li>
+              <li>
+                <i class="bi bi-arrow-right-circle-fill" style="color:var(--amber);"></i>
+                <span><em>Manajemen waktu alokasi materi</em> — pada Siklus 2, beberapa kelompok tidak menyelesaikan semua tugas LKPD karena estimasi waktu yang kurang presisi.</span>
+              </li>
+              <li>
+                <i class="bi bi-arrow-right-circle-fill" style="color:var(--amber);"></i>
+                <span><em>Asesmen formatif real-time</em> — belum memiliki instrumen yang cukup untuk memantau pemahaman siswa secara cepat di tengah sesi pembelajaran.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Rencana Tindak Lanjut -->
+        <div class="col-lg-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <div class="kk-card kk-rtl">
+            <div class="kk-card-header">
+              <div class="kk-icon" style="background:var(--indigo-light);color:var(--indigo);border:1px solid var(--indigo-mid);">
+                <i class="bi bi-map-fill"></i>
+              </div>
+              <div>
+                <span class="kk-badge" style="background:var(--indigo-light);color:var(--indigo);">RTL</span>
+                <div class="kk-title" style="margin-top:4px;">Rencana Tindak Lanjut untuk PPL Mandiri</div>
+              </div>
+            </div>
+            <ul class="kk-list">
+              <li>
+                <i class="bi bi-arrow-up-right-circle-fill" style="color:var(--indigo);"></i>
+                <span>Merancang <em>profil belajar siswa</em> di awal PPL Mandiri untuk mengidentifikasi gaya belajar dan kebutuhan diferensiasi sejak pertemuan pertama.</span>
+              </li>
+              <li>
+                <i class="bi bi-arrow-up-right-circle-fill" style="color:var(--indigo);"></i>
+                <span>Mengintegrasikan <em>Exit Ticket digital</em> (Google Forms 3 pertanyaan) di akhir setiap sesi sebagai asesmen formatif real-time yang cepat dan terukur.</span>
+              </li>
+              <li>
+                <i class="bi bi-arrow-up-right-circle-fill" style="color:var(--indigo);"></i>
+                <span>Menambahkan <em>sesi debugging mandiri 5 menit</em> sebelum guru memberikan bantuan — melatih siswa membaca error message secara independen.</span>
+              </li>
+              <li>
+                <i class="bi bi-arrow-up-right-circle-fill" style="color:var(--indigo);"></i>
+                <span>Menyempurnakan estimasi waktu LKPD dengan <em>uji coba mandiri</em> sebelum mengajar — mengerjakan sendiri semua tugas dan mengukur waktu aktualnya.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- ══ MODEL GURU ══ -->
   <section class="model-guru-section">
     <div class="container">
@@ -588,6 +769,53 @@
           </div>
         </div>
       </div>
+
+      <!-- Kompetensi Spesifik yang Ingin Dibangun -->
+      <div class="mt-5" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        <div style="font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-faint);margin-bottom:1.25rem;">
+          Kompetensi Guru Profesional yang Saya Targetkan
+        </div>
+        <div class="kompetensi-grid">
+
+          <div class="kompetensi-item">
+            <div class="kompetensi-dot" style="background:var(--indigo);"></div>
+            <div>
+              <div class="kompetensi-label">Kompetensi Pedagogik</div>
+              <div class="kompetensi-title">Merancang Pembelajaran Berdiferensiasi</div>
+              <div class="kompetensi-desc">Mampu menyesuaikan strategi, konten, dan produk pembelajaran berdasarkan profil belajar dan kesiapan siswa yang beragam.</div>
+            </div>
+          </div>
+
+          <div class="kompetensi-item">
+            <div class="kompetensi-dot" style="background:var(--sky);"></div>
+            <div>
+              <div class="kompetensi-label">Kompetensi Profesional</div>
+              <div class="kompetensi-title">Penguasaan Materi Informatika yang Dinamis</div>
+              <div class="kompetensi-desc">Terus memperbarui pengetahuan teknis Informatika agar materi yang diajarkan selalu relevan dengan perkembangan teknologi terkini.</div>
+            </div>
+          </div>
+
+          <div class="kompetensi-item">
+            <div class="kompetensi-dot" style="background:var(--emerald);"></div>
+            <div>
+              <div class="kompetensi-label">Kompetensi Kepribadian</div>
+              <div class="kompetensi-title">Memodelkan Growth Mindset secara Konsisten</div>
+              <div class="kompetensi-desc">Menunjukkan secara langsung kepada siswa bahwa kesalahan dan kegagalan adalah bagian dari proses belajar, bukan tanda ketidakmampuan.</div>
+            </div>
+          </div>
+
+          <div class="kompetensi-item">
+            <div class="kompetensi-dot" style="background:var(--violet);"></div>
+            <div>
+              <div class="kompetensi-label">Kompetensi Sosial</div>
+              <div class="kompetensi-title">Membangun Ekosistem Belajar yang Inklusif</div>
+              <div class="kompetensi-desc">Menciptakan lingkungan kelas di mana setiap siswa — tanpa memandang latar belakang teknis — merasa aman untuk mencoba, gagal, dan mencoba lagi.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 

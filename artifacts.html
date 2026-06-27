@@ -538,6 +538,35 @@
       margin: 0.7rem 0 0.3rem; padding-left: 0.65rem;
     }
 
+  
+    /* ── KELEBIHAN KEKURANGAN BLOCK ── */
+    .kk-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border-radius: var(--radius-md);
+      overflow: hidden; border: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    .kk-half {
+      padding: 1.25rem 1.5rem; background: var(--white);
+      transition: background 0.2s ease;
+    }
+    .kk-half:hover { background: var(--bg-tint); }
+    .kk-half-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; border-radius: 100px;
+      padding: 0.22rem 0.7rem; margin-bottom: 0.85rem;
+    }
+    .kk-half-label.label-plus  { background: var(--emerald-light); color: var(--emerald); }
+    .kk-half-label.label-minus { background: var(--amber-light); color: var(--amber); }
+    .kk-points { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .kk-points li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.82rem; color: var(--text-body); line-height: 1.7;
+    }
+    .kk-points li i { flex-shrink: 0; margin-top: 3px; font-size: 0.78rem; }
+    @media (max-width: 576px) { .kk-block { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body>
@@ -662,6 +691,26 @@
             </p>
           </div>
 
+
+          <div class="kk-block" data-aos="fade-up" data-aos-duration="800" data-aos-delay="90">
+            <div class="kk-half">
+              <div class="kk-half-label label-plus"><i class="bi bi-plus-circle-fill"></i> Kelebihan</div>
+              <ul class="kk-points">
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Sistem undian "wajib tanya" berhasil meningkatkan keterlibatan verbal siswa secara spontan dan tidak terduga.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Kemampuan improvisasi terbukti — sesi tetap berjalan kondusif meski tanpa modul ajar mandiri.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Menghasilkan data observasi yang kaya untuk merancang desain pembelajaran siklus berikutnya.</li>
+              </ul>
+            </div>
+            <div class="kk-half">
+              <div class="kk-half-label label-minus"><i class="bi bi-dash-circle-fill"></i> Kekurangan</div>
+              <ul class="kk-points">
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Format presentasi konvensional menyisakan siswa yang tidak mendapat giliran dalam kondisi pasif.</li>
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Tidak ada modul ajar mandiri — sehingga ketercapaian tujuan pembelajaran sulit diukur secara terstruktur.</li>
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Belum ada instrumen asesmen yang disiapkan untuk mengukur pemahaman siswa secara individual.</li>
+              </ul>
+            </div>
+          </div>
+
           <div class="row g-3 mt-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
             <div class="col-sm-4">
               <div class="lesson-card">
@@ -723,7 +772,7 @@
                 </div>
               </div>
                 <div class="foto-grid" id="fotoGrid-s1">
-                  <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s1'), 0)">
                   <img src="assets/Siklus 1.jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
@@ -774,6 +823,27 @@
             <p class="desc-block-text">
               Dua fenomena tercatat sebagai temuan kritis: pertama, <em>pola free-rider</em> di mana hanya siswa yang paling mahir yang menyentuh keyboard sementara yang lain menonton. Kedua, <em>miskonsepsi String vs. Integer</em> yang persisten — beberapa siswa terus membungkus angka dalam tanda petik karena itulah yang pertama kali mereka pelajari. Kedua temuan ini menjadi agenda utama yang harus direspons secara sistematis di Siklus 3.
             </p>
+          </div>
+
+
+          <div class="kk-block" data-aos="fade-up" data-aos-duration="800" data-aos-delay="90">
+            <div class="kk-half">
+              <div class="kk-half-label label-plus"><i class="bi bi-plus-circle-fill"></i> Kelebihan</div>
+              <ul class="kk-points">
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Konteks skenario kasir kantin terbukti efektif meningkatkan motivasi dan relevansi belajar siswa Pemasaran.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Google Colab sebagai platform koding berhasil diakses semua siswa tanpa hambatan instalasi perangkat lunak.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Desain LKPD dengan scaffolding bertahap (template → mandiri) sesuai prinsip ZPD Vygotsky berjalan efektif.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Model STAD mendorong interaksi tutor sebaya secara alami di antara anggota kelompok.</li>
+              </ul>
+            </div>
+            <div class="kk-half">
+              <div class="kk-half-label label-minus"><i class="bi bi-dash-circle-fill"></i> Kekurangan</div>
+              <ul class="kk-points">
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Pola <em>free-rider</em> teridentifikasi — hanya siswa paling mahir yang menyentuh keyboard, anggota lain menonton.</li>
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Miskonsepsi String vs. Integer persisten meski sudah dijelaskan — pendekatan penjelasan ulang tidak cukup efektif.</li>
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Estimasi waktu LKPD kurang presisi — beberapa kelompok tidak menyelesaikan semua tugas dalam alokasi waktu.</li>
+              </ul>
+            </div>
           </div>
 
           <div class="row g-3 mt-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
@@ -860,15 +930,15 @@
               </div>
               <!-- Foto Grid -->
               <div class="foto-grid" id="fotoGrid-s2">
-                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s2'), 0)">
                   <img src="assets/Siklus 2 (1).jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
-                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s2'), 1)">
                   <img src="assets/Siklus 2 (2).jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
-                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s2'), 2)">
                   <img src="assets/Siklus 2 (3).jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
@@ -939,6 +1009,27 @@
             <p class="desc-block-text">
               Setiap kelompok memiliki 4 peran: <em>Operator 1 (0–15 menit), Operator 2 (15–30 menit), Operator 3 (30–45 menit), dan Operator 4 (45–60 menit)</em>. Nama setiap Operator ditulis di LKPD sebagai kontrak moral. Dengan aturan satu perangkat aktif dan rotasi fisik, setiap siswa secara harfiah dipaksa untuk duduk di depan keyboard, mengetik, dan bertanggung jawab atas tugasnya. <em>Masalah perilaku yang berulang membutuhkan solusi struktural, bukan solusi verbal.</em>
             </p>
+          </div>
+
+
+          <div class="kk-block" data-aos="fade-up" data-aos-duration="800" data-aos-delay="90">
+            <div class="kk-half">
+              <div class="kk-half-label label-plus"><i class="bi bi-plus-circle-fill"></i> Kelebihan</div>
+              <ul class="kk-points">
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Sprint Rotasi Keyboard berhasil memutus pola free-rider secara struktural — 100% siswa aktif mengetik.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Mobile Teaching ke baris belakang secara efektif menjaga fokus siswa yang biasanya luput dari pengawasan.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Pengumuman Tim Super berbasis Improvement Score STAD menciptakan semangat kompetitif yang sehat.</li>
+                <li><i class="bi bi-check-circle-fill" style="color:var(--emerald);"></i>Mendapat apresiasi dan penilaian tertinggi dari Guru Pamong dibandingkan dua siklus sebelumnya.</li>
+              </ul>
+            </div>
+            <div class="kk-half">
+              <div class="kk-half-label label-minus"><i class="bi bi-dash-circle-fill"></i> Kekurangan</div>
+              <ul class="kk-points">
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Mekanisme rotasi membutuhkan kedisiplinan waktu yang tinggi — jika satu sesi molor, seluruh jadwal rotasi terganggu.</li>
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Siswa dengan kecepatan mengetik sangat rendah masih merasa tertekan saat giliran tiba — perlu strategi dukungan tambahan.</li>
+                <li><i class="bi bi-exclamation-circle-fill" style="color:var(--amber);"></i>Kemandirian membaca error message siswa belum sepenuhnya terbentuk — masih bergantung pada bantuan guru atau teman.</li>
+              </ul>
+            </div>
           </div>
 
           <div class="row g-3 mt-1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
@@ -1018,15 +1109,15 @@
                 </div>
               </div>
               <div class="foto-grid" id="fotoGrid-s3">
-                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s3'), 0)">
                   <img src="assets/Siklus 3 (1).jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
-                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s3'), 1)">
                   <img src="assets/Siklus 3 (2).jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
-                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt || 'Foto Dokumentasi', getAllFotos('fotoGrid-s3'), 2)">
                   <img src="assets/Siklus 3 (3).jpeg" alt="Keterangan foto">
                   <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
                 </div>
