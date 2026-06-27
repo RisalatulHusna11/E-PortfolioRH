@@ -389,6 +389,155 @@
       .analisis-tab-wrap { gap: 0.4rem; }
       .siklus-meta { gap: 0.65rem; }
     }
+  
+    /* ── ARTEFAK LINK ITEM (redesign) ── */
+    .artefak-item-link {
+      display: flex; align-items: center; gap: 0.85rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+      transition: all 0.22s ease; box-shadow: var(--shadow-xs);
+      text-decoration: none; position: relative; overflow: hidden;
+    }
+    .artefak-item-link::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--indigo); opacity: 0;
+      transition: opacity 0.22s ease;
+    }
+    .artefak-item-link:hover {
+      border-color: var(--indigo-mid); box-shadow: var(--shadow-sm);
+      transform: translateX(4px); text-decoration: none; background: var(--bg-tint);
+    }
+    .artefak-item-link:hover::before { opacity: 1; }
+    .artefak-link-badge {
+      margin-left: auto; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.65rem; font-weight: 700;
+      color: var(--indigo); background: var(--indigo-light);
+      border: 1px solid var(--indigo-mid);
+      border-radius: 6px; padding: 0.28rem 0.65rem;
+      transition: all 0.2s ease; white-space: nowrap;
+    }
+    .artefak-item-link:hover .artefak-link-badge {
+      background: var(--indigo); color: white; border-color: var(--indigo);
+    }
+
+    /* ── FOTO GRID (4 kolom, lebih kecil) ── */
+    .foto-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;
+      margin-top: 0.5rem; width: 100%;
+    }
+    .foto-thumb {
+      position: relative; border-radius: 7px; overflow: hidden;
+      aspect-ratio: 1; cursor: pointer;
+      border: 1.5px solid var(--border); transition: all 0.2s ease;
+    }
+    .foto-thumb:hover { border-color: var(--indigo); transform: scale(1.05); z-index: 1; box-shadow: var(--shadow-sm); }
+    .foto-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .foto-thumb-overlay {
+      position: absolute; inset: 0; background: rgba(79,70,229,0.55);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.2s ease; color: white; font-size: 1rem;
+    }
+    .foto-thumb:hover .foto-thumb-overlay { opacity: 1; }
+    .foto-placeholder {
+      background: var(--bg-subtle); border-radius: 7px; aspect-ratio: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; color: var(--text-faint); font-size: 0.58rem; font-weight: 600;
+      text-align: center; border: 1.5px dashed var(--border);
+      cursor: pointer; transition: all 0.2s ease; padding: 4px;
+    }
+    .foto-placeholder:hover { border-color: var(--indigo); color: var(--indigo); background: var(--indigo-light); }
+    .foto-placeholder i { font-size: 1rem; }
+
+    /* ── LIGHTBOX (clean, topbar only) ── */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 1rem;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-inner { position: relative; max-width: 88vw; max-height: 92vh; text-align: center; }
+    .lightbox-inner img {
+      max-width: 80vw; max-height: 78vh; border-radius: 14px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6); object-fit: contain;
+      display: block; margin: 0 auto;
+    }
+    .lightbox-topbar {
+      position: absolute; top: -48px; left: 0; right: 0;
+      display: flex; align-items: center; justify-content: space-between; padding: 0 4px;
+    }
+    .lightbox-counter { font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+    .lightbox-topbar-actions { display: flex; gap: 0.5rem; }
+    .lightbox-icon-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.15);
+      color: white; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.9rem; transition: all 0.2s ease; text-decoration: none;
+    }
+    .lightbox-icon-btn:hover { background: rgba(255,255,255,0.25); color: white; }
+    .lightbox-caption {
+      font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 0.6rem; text-align: center;
+    }
+    .lightbox-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
+      color: white; width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s ease; font-size: 0.9rem;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.28); }
+    .lightbox-prev { left: -52px; }
+    .lightbox-next { right: -52px; }
+
+    /* ── VIDEO CARD (thumbnail style) ── */
+    .video-card-item {
+      display: flex; align-items: center; gap: 0.85rem;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 0.75rem 1rem;
+      transition: all 0.22s ease; text-decoration: none;
+      box-shadow: var(--shadow-xs); position: relative; overflow: hidden;
+    }
+    .video-card-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: #E11D48; opacity: 0; transition: opacity 0.22s ease;
+    }
+    .video-card-item:hover {
+      border-color: #FECDD3; box-shadow: var(--shadow-sm);
+      transform: translateX(4px); text-decoration: none; background: #FFF8F8;
+    }
+    .video-card-item:hover::before { opacity: 1; }
+    .video-thumb {
+      width: 52px; height: 38px; border-radius: 7px; flex-shrink: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #7f1d1d 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.1rem; position: relative;
+    }
+    .video-card-badge {
+      margin-left: auto; flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.65rem; font-weight: 700;
+      color: #E11D48; background: #FFF1F2; border: 1px solid #FECDD3;
+      border-radius: 6px; padding: 0.28rem 0.65rem; transition: all 0.2s ease;
+    }
+    .video-card-item:hover .video-card-badge { background: #E11D48; color: white; border-color: #E11D48; }
+
+    /* ── PENDUKUNG LINK LIST ── */
+    .pendukung-link-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+    .pendukung-link-list li a {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.77rem; font-weight: 500; color: var(--text-body);
+      text-decoration: none; padding: 0.38rem 0.65rem;
+      border-radius: 6px; transition: all 0.2s ease; border: 1px solid transparent;
+    }
+    .pendukung-link-list li a:hover { background: var(--indigo-light); color: var(--indigo); border-color: var(--indigo-mid); }
+    .pendukung-link-list li a i { font-size: 0.72rem; color: var(--text-faint); flex-shrink: 0; }
+    .pendukung-link-list li a:hover i { color: var(--indigo); }
+    .pendukung-link-group-label {
+      font-size: 0.63rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--text-faint);
+      margin: 0.7rem 0 0.3rem; padding-left: 0.65rem;
+    }
+
   </style>
 </head>
 <body>
@@ -543,25 +692,41 @@
             Artefak Tersedia
           </div>
           <div class="artefak-grid">
-            <div class="artefak-item">
+
+            <!-- Lembar Kerja 4 Siklus 1 -->
+            <a href="https://drive.google.com/file/d/1om8DnobNYMAO0gneft2u-6MOycgM8xAo/view?usp=sharing" target="_blank" class="artefak-item-link">
               <div class="artefak-icon" style="background:var(--indigo-light);color:var(--indigo);"><i class="bi bi-file-text-fill"></i></div>
               <div>
-                <div class="artefak-name">LK 4 Siklus 1</div>
+                <div class="artefak-name">Lembar Kerja 4 Siklus 1</div>
                 <div class="artefak-type">Refleksi Praktik Mengajar</div>
               </div>
-            </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--sky-light);color:var(--sky);"><i class="bi bi-clipboard2-check-fill"></i></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <!-- Contoh Hasil Kerja Siswa -->
+            <a href="https://drive.google.com/drive/folders/1NKFqsfayvMO2YEawmT8dQ3eM6gLtNBYY?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-person-check-fill"></i></div>
               <div>
-                <div class="artefak-name">Catatan Observasi Kelas</div>
-                <div class="artefak-type">Dokumentasi Lapangan</div>
+                <div class="artefak-name">Contoh Hasil Kerja Siswa</div>
+                <div class="artefak-type">Bukti Keterlibatan Aktif Siswa</div>
               </div>
-            </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-camera-fill"></i></div>
-              <div>
-                <div class="artefak-name">Dokumentasi Foto Kegiatan</div>
-                <div class="artefak-type">Bukti Visual Pembelajaran</div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <!-- Dokumentasi Foto -->
+            <div class="artefak-item" style="flex-direction:column; align-items:flex-start; gap:0.6rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem; width:100%;">
+                <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-images"></i></div>
+                <div>
+                  <div class="artefak-name">Dokumentasi Kegiatan</div>
+                  <div class="artefak-type">Klik foto untuk memperbesar &amp; unduh</div>
+                </div>
+              </div>
+                <div class="foto-grid" id="fotoGrid-s1">
+                  <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 1.jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
               </div>
             </div>
           </div>
@@ -641,34 +806,94 @@
             Artefak Tersedia
           </div>
           <div class="artefak-grid">
-            <div class="artefak-item">
+
+            <a href="https://drive.google.com/file/d/1j8_L1ejha9JBuMgPmBEyUU-YkMjethgD/view?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--indigo-light);color:var(--indigo);"><i class="bi bi-file-text-fill"></i></div>
+              <div><div class="artefak-name">Lembar Kerja 4 Siklus 2</div><div class="artefak-type">Refleksi Praktik Mengajar</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1jqqaSSSDdEBtBernHDh82WgCT5sOFgll/view?usp=sharing" target="_blank" class="artefak-item-link">
               <div class="artefak-icon" style="background:var(--sky-light);color:var(--sky);"><i class="bi bi-journal-bookmark-fill"></i></div>
-              <div>
-                <div class="artefak-name">Modul Ajar Siklus 2</div>
-                <div class="artefak-type">Modul Lengkap Mandiri</div>
+              <div><div class="artefak-name">Modul Ajar Siklus 2</div><div class="artefak-type">Modul Lengkap Mandiri</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://docs.google.com/presentation/d/1DTO8cFsKSOum6kKtL5JVUAv7jTlvmFis/edit?usp=sharing&ouid=111389940258141226472&rtpof=true&sd=true" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--violet-light);color:var(--violet);"><i class="bi bi-people-fill"></i></div>
+              <div><div class="artefak-name">Bahan Ajar Sistem Pembelajaran STAD</div><div class="artefak-type">Materi Pendukung Model Pembelajaran</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://docs.google.com/presentation/d/1-yj_gBnvvessNnKjMtq_IpzhcQEw8dOM/edit?usp=sharing&ouid=111389940258141226472&rtpof=true&sd=true" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--sky-light);color:var(--sky);"><i class="bi bi-code-square"></i></div>
+              <div><div class="artefak-name">Bahan Ajar Variabel &amp; Tipe Data</div><div class="artefak-type">Materi Pokok Python Siklus 2</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1e7fbJYmEjLZeeeGIvUlLUP1nHIJ-lnW6/view?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-file-earmark-text-fill"></i></div>
+              <div><div class="artefak-name">LKPD Variabel &amp; Tipe Data</div><div class="artefak-type">Lembar Kerja Peserta Didik</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1BYOEv6t10qPvzR9ExTVXJmRhtjoNIVo0/view?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-patch-question-fill"></i></div>
+              <div><div class="artefak-name">Kuis Individu</div><div class="artefak-type">Instrumen Asesmen Siklus 2</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1gBOfSVoboHXt3phFbMMAAd3JtlvP4iSx/view?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-person-check-fill"></i></div>
+              <div><div class="artefak-name">Contoh Hasil Kerja Siswa</div><div class="artefak-type">Bukti Keterlibatan Aktif Siswa</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <!-- Dokumentasi Foto + Video Siklus 2 -->
+            <div class="artefak-item" style="flex-direction:column; align-items:flex-start; gap:0.6rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem; width:100%;">
+                <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-images"></i></div>
+                <div>
+                  <div class="artefak-name">Dokumentasi Kegiatan</div>
+                  <div class="artefak-type">Klik foto atau video untuk memperbesar &amp; unduh</div>
+                </div>
+              </div>
+              <!-- Foto Grid -->
+              <div class="foto-grid" id="fotoGrid-s2">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 2 (1).jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 2 (2).jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 2 (3).jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
+              </div>
+              <!-- Video Links -->
+              <div style="width:100%; display:flex; flex-direction:column; gap:0.45rem; margin-top:0.25rem;">
+                <a href="https://drive.google.com/file/d/19195snVpdWtWAoYw2MInMH4Z77pVVwyz/view?usp=drive_link" target="_blank" class="video-card-item">
+                  <div class="video-thumb"><i class="bi bi-play-fill"></i></div>
+                  <div>
+                    <div class="artefak-name" style="font-size:0.83rem;">Video Dokumentasi Siklus 2 — Part 1</div>
+                    <div class="artefak-type">Rekaman Proses Pembelajaran</div>
+                  </div>
+                  <span class="video-card-badge"><i class="bi bi-play-fill"></i> Tonton</span>
+                </a>
+                <a href="https://drive.google.com/file/d/1SGLSQi-QgtwacblShhG_QeBtOenAl8E5/view?usp=sharing" target="_blank" class="video-card-item">
+                  <div class="video-thumb"><i class="bi bi-play-fill"></i></div>
+                  <div>
+                    <div class="artefak-name" style="font-size:0.83rem;">Video Dokumentasi Siklus 2 — Part 2</div>
+                    <div class="artefak-type">Rekaman Proses Pembelajaran</div>
+                  </div>
+                  <span class="video-card-badge"><i class="bi bi-play-fill"></i> Tonton</span>
+                </a>
               </div>
             </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--indigo-light);color:var(--indigo);"><i class="bi bi-file-earmark-text-fill"></i></div>
-              <div>
-                <div class="artefak-name">LKPD Variabel &amp; Tipe Data</div>
-                <div class="artefak-type">Lembar Kerja Peserta Didik</div>
-              </div>
-            </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-patch-question-fill"></i></div>
-              <div>
-                <div class="artefak-name">Kuis Individu + Kunci Jawaban</div>
-                <div class="artefak-type">Instrumen Asesmen</div>
-              </div>
-            </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-file-text-fill"></i></div>
-              <div>
-                <div class="artefak-name">LK 4 Siklus 2</div>
-                <div class="artefak-type">Refleksi Praktik Mengajar</div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -746,41 +971,78 @@
             Artefak Tersedia
           </div>
           <div class="artefak-grid">
-            <div class="artefak-item">
+
+            <a href="https://drive.google.com/file/d/1dJAOwAIioNTrg0THHvvidlXbVj2Xcf9u/view?usp=drive_link" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--indigo-light);color:var(--indigo);"><i class="bi bi-file-text-fill"></i></div>
+              <div><div class="artefak-name">Lembar Kerja 4 Siklus 3</div><div class="artefak-type">Refleksi Praktik Mengajar</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1iHA1NyvsyFxKsHtZZVlsvyUhrbU9MLAc/view?usp=sharing" target="_blank" class="artefak-item-link">
               <div class="artefak-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-journal-bookmark-fill"></i></div>
-              <div>
-                <div class="artefak-name">Modul Ajar Siklus 3</div>
-                <div class="artefak-type">Modul Lengkap Mandiri</div>
-              </div>
-            </div>
-            <div class="artefak-item">
+              <div><div class="artefak-name">Modul Ajar Siklus 3</div><div class="artefak-type">Modul Lengkap Mandiri</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://docs.google.com/presentation/d/1R43zlRQHBdS5LyyBV6y-3cE68bA8gUN0/edit?usp=sharing&ouid=111389940258141226472&rtpof=true&sd=true" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--sky-light);color:var(--sky);"><i class="bi bi-calculator-fill"></i></div>
+              <div><div class="artefak-name">Bahan Ajar Operator Aritmatika</div><div class="artefak-type">Materi Pokok Python Siklus 3</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/12Oy-bdKKfAxGmaRqbRsHrGS3XaZski_q/view?usp=sharing" target="_blank" class="artefak-item-link">
               <div class="artefak-icon" style="background:var(--indigo-light);color:var(--indigo);"><i class="bi bi-keyboard-fill"></i></div>
-              <div>
-                <div class="artefak-name">LKPD Sprint Rotasi Keyboard</div>
-                <div class="artefak-type">Lembar Kerja Inovatif</div>
+              <div><div class="artefak-name">LKPD Operator Aritmatika</div><div class="artefak-type">LKPD Sprint Rotasi Keyboard</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1SqDQPM_bVmn5CiGF7PCVZitkX9lTH-5q/view?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-patch-question-fill"></i></div>
+              <div><div class="artefak-name">Kuis Individu</div><div class="artefak-type">Instrumen Asesmen Siklus 3</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1qwfT0LIjEcrP8gXge908HlHS4g4s81cu/view?usp=sharing" target="_blank" class="artefak-item-link">
+              <div class="artefak-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-person-check-fill"></i></div>
+              <div><div class="artefak-name">Contoh Hasil Kerja Siswa</div><div class="artefak-type">Bukti Keterlibatan Aktif Siswa</div></div>
+              <span class="artefak-link-badge"><i class="bi bi-box-arrow-up-right"></i> Buka</span>
+            </a>
+
+            <!-- Dokumentasi Foto + Video Siklus 3 -->
+            <div class="artefak-item" style="flex-direction:column; align-items:flex-start; gap:0.6rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem; width:100%;">
+                <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-images"></i></div>
+                <div>
+                  <div class="artefak-name">Dokumentasi Kegiatan</div>
+                  <div class="artefak-type">Klik foto atau video untuk memperbesar &amp; unduh</div>
+                </div>
+              </div>
+              <div class="foto-grid" id="fotoGrid-s3">
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 3 (1).jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 3 (2).jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
+                <div class="foto-thumb" onclick="openLightbox(this.querySelector('img').src, 'Keterangan foto', getAllFotos('fotoGrid-s1'), 0)">
+                  <img src="assets/Siklus 3 (3).jpeg" alt="Keterangan foto">
+                  <div class="foto-thumb-overlay"><i class="bi bi-arrows-fullscreen"></i></div>
+                </div>
+              </div>
+              <div style="width:100%; display:flex; flex-direction:column; gap:0.45rem; margin-top:0.25rem;">
+                <a href="https://drive.google.com/file/d/1IBkKV1FEzEUJ1lh1vYNM4v5bZWtNymZH/view?usp=drive_link" target="_blank" class="video-card-item">
+                  <div class="video-thumb"><i class="bi bi-play-fill"></i></div>
+                  <div>
+                    <div class="artefak-name" style="font-size:0.83rem;">Video Dokumentasi Siklus 3</div>
+                    <div class="artefak-type">Rekaman Proses Pembelajaran</div>
+                  </div>
+                  <span class="video-card-badge"><i class="bi bi-play-fill"></i> Tonton</span>
+                </a>
               </div>
             </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--sky-light);color:var(--sky);"><i class="bi bi-patch-question-fill"></i></div>
-              <div>
-                <div class="artefak-name">Kuis Individu + Kunci Jawaban</div>
-                <div class="artefak-type">Instrumen Asesmen</div>
-              </div>
-            </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--violet-light);color:var(--violet);"><i class="bi bi-easel2-fill"></i></div>
-              <div>
-                <div class="artefak-name">PPT Laporan Refleksi Siklus 3</div>
-                <div class="artefak-type">Presentasi Refleksi</div>
-              </div>
-            </div>
-            <div class="artefak-item">
-              <div class="artefak-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-file-text-fill"></i></div>
-              <div>
-                <div class="artefak-name">LK 4 Siklus 3</div>
-                <div class="artefak-type">Refleksi Praktik Mengajar</div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -939,34 +1201,71 @@
         </div>
       </div>
       <div class="row g-4">
+        <!-- LK 1 -->
         <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
           <div class="pendukung-card">
             <div class="pendukung-icon" style="background:var(--indigo-light);color:var(--indigo);"><i class="bi bi-building-check"></i></div>
-            <div class="pendukung-title">LK 1 — Orientasi &amp; Observasi Manajemen</div>
+            <div class="pendukung-title">Lembar Kerja 1 — Orientasi &amp; Observasi Manajemen</div>
             <p class="pendukung-desc">Orientasi &amp; Observasi Manajemen Sekolah SMKN 1 Banjarmasin (9 Februari 2026).</p>
+            <a href="https://drive.google.com/file/d/1f_1jAyQEfuTDYPn_B4gLGyGtO61ZJR8B/view?usp=sharing" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:0.85rem;font-size:0.75rem;font-weight:700;color:var(--indigo);text-decoration:none;background:var(--indigo-light);border:1px solid var(--indigo-mid);border-radius:100px;padding:0.3rem 0.8rem;transition:all 0.2s ease;" onmouseover="this.style.background='var(--indigo)';this.style.color='white'" onmouseout="this.style.background='var(--indigo-light)';this.style.color='var(--indigo)'">
+              <i class="bi bi-box-arrow-up-right"></i> Buka Dokumen
+            </a>
           </div>
         </div>
+
+        <!-- LK 2 -->
         <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="80">
           <div class="pendukung-card">
             <div class="pendukung-icon" style="background:var(--sky-light);color:var(--sky);"><i class="bi bi-eye-fill"></i></div>
-            <div class="pendukung-title">LK 2 — Observasi Lingkungan Belajar</div>
+            <div class="pendukung-title">Lembar Kerja 2 — Observasi Lingkungan Belajar</div>
             <p class="pendukung-desc">Observasi lingkungan belajar kelas dan laboratorium komputer SMKN 1 Banjarmasin.</p>
+            <a href="https://drive.google.com/file/d/1j42pC7py8raQjYO509kk_EBKySGtZU0X/view?usp=sharing" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:0.85rem;font-size:0.75rem;font-weight:700;color:var(--indigo);text-decoration:none;background:var(--indigo-light);border:1px solid var(--indigo-mid);border-radius:100px;padding:0.3rem 0.8rem;transition:all 0.2s ease;" onmouseover="this.style.background='var(--indigo)';this.style.color='white'" onmouseout="this.style.background='var(--indigo-light)';this.style.color='var(--indigo)'">
+              <i class="bi bi-box-arrow-up-right"></i> Buka Dokumen
+            </a>
           </div>
         </div>
+
+        <!-- LK 3 -->
         <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="160">
           <div class="pendukung-card">
             <div class="pendukung-icon" style="background:var(--emerald-light);color:var(--emerald);"><i class="bi bi-person-lines-fill"></i></div>
-            <div class="pendukung-title">LK 3 — Refleksi Asistensi</div>
+            <div class="pendukung-title">Lembar Kerja 3 — Refleksi Asistensi</div>
             <p class="pendukung-desc">Refleksi Praktik Asistensi di Kelas X B DKV — Materi Excel IF bersama Guru Pamong.</p>
+            <a href="https://drive.google.com/file/d/1qQpfelQzciSv55nlJw432cwheV_o1T1M/view?usp=sharing" target="_blank" style="display:inline-flex;align-items:center;gap:5px;margin-top:0.85rem;font-size:0.75rem;font-weight:700;color:var(--indigo);text-decoration:none;background:var(--indigo-light);border:1px solid var(--indigo-mid);border-radius:100px;padding:0.3rem 0.8rem;transition:all 0.2s ease;" onmouseover="this.style.background='var(--indigo)';this.style.color='white'" onmouseout="this.style.background='var(--indigo-light)';this.style.color='var(--indigo)'">
+              <i class="bi bi-box-arrow-up-right"></i> Buka Dokumen
+            </a>
           </div>
         </div>
+
+        <!-- Penilaian GP & DPL -->
         <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="240">
           <div class="pendukung-card">
             <div class="pendukung-icon" style="background:var(--amber-light);color:var(--amber);"><i class="bi bi-clipboard-check-fill"></i></div>
-            <div class="pendukung-title">Instrumen Penilaian GP</div>
-            <p class="pendukung-desc">Instrumen Penilaian Perangkat &amp; Praktik Mengajar dari Guru Pamong — Simulasi Siklus 3.</p>
+            <div class="pendukung-title">Penilaian GP &amp; DPL</div>
+
+            <div class="pendukung-link-group-label">Penilaian Penyusunan Perangkat</div>
+            <ul class="pendukung-link-list">
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_ASISTENSI" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Asistensi Mengajar</a></li>
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_PM_S1" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Siklus 1</a></li>
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_PM_S2" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Siklus 2</a></li>
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_PM_S3" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Siklus 3</a></li>
+            </ul>
+
+            <div class="pendukung-link-group-label">Penilaian Praktik Mengajar</div>
+            <ul class="pendukung-link-list">
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_PP_S1" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Siklus 1</a></li>
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_PP_S2" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Siklus 2</a></li>
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_PP_S3" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Siklus 3</a></li>
+            </ul>
+
+            <div class="pendukung-link-group-label">Kunjungan DPL</div>
+            <ul class="pendukung-link-list">
+              <li><a href="GANTI_LINK_GDRIVE_NILAI_ASISTENSI" target="_blank"><i class="bi bi-box-arrow-up-right"></i>Siklus 2</a></li>
+            </ul>
+
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -1062,6 +1361,84 @@
       document.getElementById(panelId).classList.add('active');
       AOS.refresh();
     }
+
+    /* ── LIGHTBOX ── */
+    let lightboxImages = [];
+    let lightboxIndex  = 0;
+
+    function openLightbox(src, caption, allImages, idx) {
+      lightboxImages = allImages;
+      lightboxIndex  = idx;
+      updateLightbox();
+      document.getElementById('lightboxOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightbox() {
+      const img  = document.getElementById('lightboxImg');
+      const cap  = document.getElementById('lightboxCaption');
+      const dl   = document.getElementById('lightboxDownload');
+      const ctr  = document.getElementById('lightboxCounter');
+      img.src    = lightboxImages[lightboxIndex].src;
+      img.alt    = lightboxImages[lightboxIndex].caption || '';
+      cap.textContent = lightboxImages[lightboxIndex].caption || '';
+      dl.href    = lightboxImages[lightboxIndex].src;
+      dl.download = lightboxImages[lightboxIndex].caption || 'foto-dokumentasi';
+      ctr.textContent = (lightboxIndex + 1) + ' / ' + lightboxImages.length;
+      document.querySelector('.lightbox-prev').style.display = lightboxIndex > 0 ? 'flex' : 'none';
+      document.querySelector('.lightbox-next').style.display = lightboxIndex < lightboxImages.length - 1 ? 'flex' : 'none';
+    }
+
+    function lightboxNav(dir) {
+      lightboxIndex = Math.max(0, Math.min(lightboxImages.length - 1, lightboxIndex + dir));
+      updateLightbox();
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function closeLightboxOutside(e) {
+      if (e.target === document.getElementById('lightboxOverlay')) closeLightbox();
+    }
+
+    function openFotoPlaceholder() {
+      alert('Cara menambah foto:\n\nGanti tag <div class="foto-placeholder"> dengan:\n\n<div class="foto-thumb" onclick=\'openLightbox(this.querySelector(\"img\").src, \"Keterangan foto\", getAllFotos(\"fotoGrid-sX\"), getIdx(this))\'> \n  <img src=\"nama-foto.jpg\" alt=\"Keterangan foto\">\n  <div class=\"foto-thumb-overlay\"><i class=\"bi bi-arrows-fullscreen\"></i></div>\n</div>');
+    }
+
+    function getAllFotos(gridId) {
+      return Array.from(document.querySelectorAll('#' + gridId + ' .foto-thumb img')).map(img => ({ src: img.src, caption: img.alt }));
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('lightboxOverlay').classList.contains('active')) return;
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   lightboxNav(-1);
+      if (e.key === 'ArrowRight')  lightboxNav(1);
+    });
   </script>
+
+  <!-- LIGHTBOX OVERLAY -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightboxOutside(event)">
+    <div class="lightbox-inner" id="lightboxInner">
+      <div class="lightbox-topbar">
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+        <div class="lightbox-topbar-actions">
+          <a id="lightboxDownload" href="" download class="lightbox-icon-btn" title="Unduh foto">
+            <i class="bi bi-download"></i>
+          </a>
+          <button class="lightbox-icon-btn" onclick="closeLightbox()" title="Tutup">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+      </div>
+      <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)"><i class="bi bi-chevron-left"></i></button>
+      <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)"><i class="bi bi-chevron-right"></i></button>
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
 </body>
 </html>
